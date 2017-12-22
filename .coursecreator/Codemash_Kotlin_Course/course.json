@@ -1,0 +1,597 @@
+{
+  "lessons": [
+    {
+      "id": 0,
+      "title": "Introduction",
+      "task_list": [
+        {
+          "name": "Hello, World",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "fun main(args: Array\u003cString\u003e){\n    println(Print something out here)\n}",
+              "placeholders": [
+                {
+                  "offset": 43,
+                  "length": 24,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [
+                        "Say something... anything, really.",
+                        "Could be your name. Could be \"Hello World.\" I dunno. "
+                      ],
+                      "possible_answer": "\"Hello World\"",
+                      "placeholder_text": "Print something out here",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.After\nimport org.junit.Assert\nimport org.junit.Before\nimport org.junit.Test\nimport java.io.ByteArrayOutputStream\nimport java.io.PrintStream\n\nclass Test {\n\n    private val outContent \u003d ByteArrayOutputStream()\n    private val errContent \u003d ByteArrayOutputStream()\n\n    @Before\n    fun setUpStreams() {\n        System.setOut(PrintStream(outContent))\n        System.setErr(PrintStream(errContent))\n    }\n\n    @After\n    fun cleanUpStreams() {\n        System.setOut(null)\n        System.setErr(null)\n    }\n\n\n    @Test fun testSolution() {\n\n        main(arrayOf(\"\"))\n\n        Assert.assertNotNull(outContent.toString())\n        Assert.assertTrue(outContent.toString().trim() !\u003d \"\")\n    }\n}"
+          },
+          "task_texts": {
+            "task": "Write task description here using markdown or html"
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Look, ma, no class!",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "// Create the function \"sum\" that takes two integer parameters and adds them together\nDeclare the function \"sum\" here",
+              "placeholders": [
+                {
+                  "offset": 86,
+                  "length": 31,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [
+                        "fun sum(x : Int, y : Int) : Int",
+                        "fun sum(x : Int, y : Int) : Int \n{\n    return \u003csomething\u003e\n}"
+                      ],
+                      "possible_answer": "fun sum(x : Int, y : Int) : Int\n{\n    return x + y\n}",
+                      "placeholder_text": "Declare the function \"sum\" here",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n        Assert.assertTrue(sum(0, 2) \u003d\u003d 2)\n        Assert.assertTrue(sum(1, 2) \u003d\u003d 3)\n        Assert.assertTrue(sum(2, 2) \u003d\u003d 4)\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Functions \n\nUnlike Java, we can simply declare a function without an enclosing class. No more static utility classes!\n\nFunctions in Kotlin are declared using the fun keyword. The return type is denoted after the parameters.\n```\nfun double(x: Int): Int {\n    return 2 * x\n}\n```\n\u003e In this example, we have a function `double` that takes an integer as it\u0027s parameter and returns and Int.\n\n\nCalling functions uses the traditional approach:\n\n```\nval result \u003d double(2)\n```\n\nFunction parameters are defined using Pascal notation, i.e. name: type. Parameters are separated using commas. Each parameter must be explicitly typed:\n```\nfun powerOf(number: Int, exponent: Int) {\n...\n}\n```"
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Another way to write functions",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "// Rewrite the \"sum\" function in one line\nDon\u0027t cheat. One line only.",
+              "placeholders": [
+                {
+                  "offset": 42,
+                  "length": 27,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [
+                        "fun sum(x: Int, y: Int) \u003d ..."
+                      ],
+                      "possible_answer": "fun sum(x: Int, y: Int) \u003d x + y",
+                      "placeholder_text": "Don\u0027t cheat. One line only.",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n        Assert.assertTrue(sum(0, 2) \u003d\u003d 2)\n        Assert.assertTrue(sum(1, 2) \u003d\u003d 3)\n        Assert.assertTrue(sum(2, 2) \u003d\u003d 4)\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Functions (Part 2)\n\nFunctions can, also, be expressed in a single line whose return type is inferred. \n\nEx: \n```\nfun double(x: Int) \u003d 2 * x\n```"
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Variables",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "fun main(){\n    // Variables can be declared as mutable (var \u003d\u003d \"variable\")\n    var myString : String \u003d \"\"\n    myString \u003d \"Foo\"\n\n    // But they can also be declared as immutable (val \u003d\u003d \"value\" or read-only)\n    val immutableString : String \u003d \"Bar\"\n    // immutableString \u003d \"Baz\"  // \u003c-- This would cause a compiler error\n\n    // The type of a variable can be inferred when it is initialized\n    val inferredType \u003d 2\n\n    // Type required when no initializer is provided, but the assignment can be deferred\n    val c: Int\n    c \u003d 3\n    // c \u003d 4 // \u003c-- This would cause a compiler error because the variable was previously assigned\n}",
+              "placeholders": []
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n\n        Assert.assertTrue(\"Tests not implemented for the task\", true)\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Variables\n\n\u003cstrong\u003eNote: There\u0027s nothing to implement for this task. Just read the code and click the \"check task\" button\u003c/strong\u003e\n\nThis example shows how to declare and initialize variables. \n\nAlso, we can see how to declare mutable/immutable variables in kotlin.\n\n```\nval a: Int \u003d 1  // immediate assignment\nval b \u003d 2   // `Int` type is inferred\nval c: Int  // Type required when no initializer is provided\nc \u003d 3       // deferred assignment\n```\n"
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Types",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "fun foo(){\n\n}",
+              "placeholders": []
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n        //TODO: implement your test here\n        Assert.assertTrue(\"Tests not implemented for the task\", false)\n    }\n}"
+          },
+          "task_texts": {
+            "task": "\n# Basic Types\n## Numbers\nKotlin provides the following built-in types representing numbers (this is close to Java):\n```\nType\tBit width\nDouble\t64\nFloat\t32\nLong\t64\nInt\t    32\nShort\t16\nByte\t8\n```\n\nThe floating-point types are: \n```\nType\tBit width\nDouble  64 \nFloat   32 \n```\n\nEach number type has helper functions that convert from one number type to another: \n`toByte(), toInt(), toLong(), toFloat(), toDouble(), toChar(), toShort()`\n```\nval myInt \u003d 987\nval myLong \u003d myInt.toLong()\n```\n\n## Booleans\nThe Boolean type in Kotlin is the same as in Java. Its value can be either true or false. The operations disjunction (||), conjunction (\u0026\u0026), and negation (!) can be performed on boolean types, just like Java.\n```\nval myTrueBoolean \u003d true\nval myFalseBoolean \u003d false\n```\n\n## Strings\nStrings can be created with either double quotes or triple quotes. In addition to that, escape characters can be used with double quotes.\n```\nval myString \u003d \"This is a String\"\nval escapeString \u003d \"This is a string with new line \\n\"\n```\nTo create a string that spans multiple lines in the source file, we use triple quotes:\n```\nval multipleStringLines \u003d \"\"\"\n        This is first line\n        This is second line\n        This is third line \"\"\"\n```   \n\nKotlin also supports string interpolation or string templates. This is an easier way to build dynamic strings than concatenation, which is what we use in Java. Using string templates, we can insert variables and expressions into a string.\n\n```\nval accountBalance \u003d 200\nval bankMessage \u003d \"Your account balance is $accountBalance\" // Your account balance is 200\n``` \n"
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Nullable Types",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "\n// Use the elvis operator to return 0 if the string is null\nfun strLenSafe(s: String?): Int \u003d TODO\n\nfun testSafeString() {\n    println(strLenSafe(\"abc\"))\n    println(strLenSafe(null))\n}",
+              "placeholders": [
+                {
+                  "offset": 95,
+                  "length": 4,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [],
+                      "possible_answer": "s?.length ?: 0",
+                      "placeholder_text": "TODO",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.After\nimport org.junit.Assert\nimport org.junit.Before\nimport org.junit.Test\nimport java.io.ByteArrayOutputStream\nimport java.io.PrintStream\n\nclass Test {\n    private val outContent \u003d ByteArrayOutputStream()\n    private val errContent \u003d ByteArrayOutputStream()\n\n    @Before\n    fun setUpStreams() {\n        System.setOut(PrintStream(outContent))\n        System.setErr(PrintStream(errContent))\n    }\n\n    @After\n    fun cleanUpStreams() {\n        System.setOut(null)\n        System.setErr(null)\n    }\n\n\n    @Test fun testSolution() {\n\n        testSafeString()\n        Assert.assertNotNull(outContent.toString())\n\n        val testResults \u003d arrayOf(\"3\", \"0\")\n        val results \u003d outContent.toString().split(\"\\r\\n\")\n        results.filter { it !\u003d \"\" }\n                .forEach { Assert.assertTrue(testResults.contains(it)) }\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Nullable Types\nKotlin\u0027s type system is aimed at eliminating the danger of null references from code, also known as the The Billion Dollar Mistake.\n\nOne of the most common pitfalls in many programming languages, including Java, is that of accessing a member of a null reference, resulting in a null reference exception. In Java this would be the equivalent of a NullPointerException or NPE for short.\n\nKotlin\u0027s type system is aimed to eliminate NullPointerException\u0027s from our code. The only possible causes of NPE\u0027s may be\n\n- An explicit call to throw NullPointerException();\n- Usage of the !! operator \n- External Java code has caused it;\n- There\u0027s some data inconsistency with regard to initialization (an uninitialized this available in a constructor is used somewhere).\n\nIn Kotlin, the type system distinguishes between references that can hold null (nullable references) and those that can not (non-null references). For example, a regular variable of type String can not hold null:\n\n```\nvar a: String \u003d \"abc\"\na \u003d null // compilation error\n```\n\nTo allow nulls, we can declare a variable as nullable string, written String?:\n```\nvar b: String? \u003d \"abc\"\nb \u003d null // ok\n```\n\n### Checking for null in conditions\nFirst, you can explicitly check if b is null, and handle the two options separately:\n```\nval l \u003d if (b !\u003d null) b.length else -1\n```\n\nYour second option is the safe call operator, written ?.:\n```\nb?.length\n```\nThis returns b.length if b is not null, and null otherwise. The type of this expression is Int?.\n\n\n### Elvis Operator\nWhen we have a nullable reference r, we can say \"if r is not null, use it, otherwise use some non-null value x\":\n```\nval l: Int \u003d if (b !\u003d null) b.length else -1\n```\nAlong with the complete if-expression, this can be expressed with the Elvis operator, written ?::\n```\nval l \u003d b?.length ?: -1\n```\nIf the expression to the left of ?: is not null, the elvis operator returns it, otherwise it returns the expression to the right. Note that the right-hand side expression is evaluated only if the left-hand side is null.\n\n### The !! Operator\nThe third option is for NPE-lovers: the not-null assertion operator (!!) converts any value to a non-null type and throws an exception if the value is null. We can write b!!, and this will return a non-null value of b (e.g., a String in our example) or throw an NPE if b is null:\n```\nval l \u003d b!!.length\n```\nThus, if you want an NPE, you can have it, but you have to ask for it explicitly, and it does not appear out of the blue.\n"
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Java To Kotlin",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "Copy the Java Code here",
+              "placeholders": [
+                {
+                  "offset": 0,
+                  "length": 23,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [],
+                      "possible_answer": "class Person(val name: String, val age: Int)",
+                      "placeholder_text": "Copy the Java Code here",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n        var person \u003d Person(\"Test\", 1)\n\n        Assert.assertNotNull(person)\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Java to Kotlin Tool\n\nIntellij/Android Studio has a handy tool for Java developers: Java to Kotlin converter. \n\nThis tool makes it easy to convert java code to kotlin code.\n\nTo become familiar with it, please copy the following class (Java) and paste in to the test file.\n\n```\npublic class Person {\n    private final String name;\n    private final int age;\n\n    public Person(String name, int age) {\n        this.name \u003d name;\n        this.age \u003d age;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    public int getAge() {\n        return age;\n    }\n}\n```"
+          },
+          "task_type": "edu"
+        }
+      ]
+    },
+    {
+      "id": 0,
+      "title": "Control Flow",
+      "task_list": [
+        {
+          "name": "If Expression",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "\n// Complete this function using the if expression\nfun max(a: Int, b: Int) \u003d TODO",
+              "placeholders": [
+                {
+                  "offset": 77,
+                  "length": 4,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [],
+                      "possible_answer": "if(a \u003e b) a else b",
+                      "placeholder_text": "TODO",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n\n        Assert.assertTrue(max(10, 1) \u003d\u003d 10)\n        Assert.assertTrue(max(1, 10) \u003d\u003d 10)\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# If Expression\n\nIn Kotlin, if is an expression, i.e. it returns a value. Therefore there is no ternary operator (condition ? then : else), because ordinary if works fine in this role.\n```\n// Traditional usage \nvar max \u003d a \nif (a \u003c b) max \u003d b\n\n// With else \nvar max: Int\nif (a \u003e b) {\n    max \u003d a\n} else {\n    max \u003d b\n}\n \n// As expression \nval max \u003d if (a \u003e b) a else b\n```\n\nif branches can be blocks, and the last expression is the value of a block:\n```\nval max \u003d if (a \u003e b) {\n    print(\"Choose a\")\n    a\n} else {\n    print(\"Choose b\")\n    b\n}\n```"
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "When Expression",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "fun isOdd(x: Int)  \u003d x % 2 !\u003d 0\nfun isEven(x: Int) \u003d x % 2 \u003d\u003d 0\n\nfun testWhenExpression(number: Int){\n    when{\nWhen number isOdd, print the word \"Odd\". When number isEven, print the word \"Even\"\n    }\n}",
+              "placeholders": [
+                {
+                  "offset": 112,
+                  "length": 82,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [],
+                      "possible_answer": "        isOdd(number) -\u003e println(\"Odd\")\n        isEven(number) -\u003e println(\"Even\")",
+                      "placeholder_text": "When number isOdd, print the word \"Odd\". When number isEven, print the word \"Even\"",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.After\nimport org.junit.Assert\nimport org.junit.Before\nimport org.junit.Test\nimport java.io.ByteArrayOutputStream\nimport java.io.PrintStream\n\nclass Test {\n    private val outContent \u003d ByteArrayOutputStream()\n    private val errContent \u003d ByteArrayOutputStream()\n\n    @Before\n    fun setUpStreams() {\n        System.setOut(PrintStream(outContent))\n        System.setErr(PrintStream(errContent))\n    }\n\n    @After\n    fun cleanUpStreams() {\n        System.setOut(null)\n        System.setErr(null)\n    }\n\n\n    @Test fun testSolution() {\n\n        for(i in 1 .. 100){\n            testWhenExpression(i)\n            Assert.assertNotNull(outContent.toString())\n\n            if(isEven(i)) {\n                Assert.assertTrue(outContent.toString().trim() \u003d\u003d \"Even\")\n            }\n            else{\n                Assert.assertTrue(outContent.toString().trim() \u003d\u003d \"Odd\")\n            }\n\n            outContent.reset()\n        }\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# When Expression\nwhen replaces the switch operator of C-like languages. In the simplest form it looks like this\n```\nwhen (x) {\n    1 -\u003e print(\"x \u003d\u003d 1\")\n    2 -\u003e print(\"x \u003d\u003d 2\")\n    else -\u003e { // Note the block\n        print(\"x is neither 1 nor 2\")\n    }\n}\n```\n\nwhen matches its argument against all branches sequentially until some branch condition is satisfied. when can be used either as an expression or as a statement. If it is used as an expression, the value of the satisfied branch becomes the value of the overall expression. If it is used as a statement, the values of individual branches are ignored. (Just like with if, each branch can be a block, and its value is the value of the last expression in the block.)\n\nThe else branch is evaluated if none of the other branch conditions are satisfied. If when is used as an expression, the else branch is mandatory, unless the compiler can prove that all possible cases are covered with branch conditions.\n\nIf many cases should be handled in the same way, the branch conditions may be combined with a comma:\n```\nwhen (x) {\n    0, 1 -\u003e print(\"x \u003d\u003d 0 or x \u003d\u003d 1\")\n    else -\u003e print(\"otherwise\")\n}\n```\n\nWe can use arbitrary expressions (not only constants) as branch conditions\n```\nwhen (x) {\n    parseInt(s) -\u003e print(\"s encodes x\")\n    else -\u003e print(\"s does not encode x\")\n}\n```"
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Loops",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "fun forLoopTest(){\n\n    val language \u003d arrayOf(\"Ruby\", \"Kotlin\", \"Python\", \"Java\")\n\nCreate a loop that prints the contents of the language array\n}",
+              "placeholders": [
+                {
+                  "offset": 84,
+                  "length": 60,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [
+                        "for(item in language)"
+                      ],
+                      "possible_answer": "    for (item in language)\n        println(item)",
+                      "placeholder_text": "Create a loop that prints the contents of the language array",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.After\nimport org.junit.Assert\nimport org.junit.Before\nimport org.junit.Test\nimport java.io.ByteArrayOutputStream\nimport java.io.PrintStream\n\nclass Test {\n    private val outContent \u003d ByteArrayOutputStream()\n    private val errContent \u003d ByteArrayOutputStream()\n\n    @Before\n    fun setUpStreams() {\n        System.setOut(PrintStream(outContent))\n        System.setErr(PrintStream(errContent))\n    }\n\n    @After\n    fun cleanUpStreams() {\n        System.setOut(null)\n        System.setErr(null)\n    }\n\n\n    @Test fun testSolution() {\n\n        val languages \u003d arrayOf(\"Ruby\", \"Kotlin\", \"Python\", \"Java\")\n\n        forLoopTest()\n\n        Assert.assertNotNull(outContent.toString())\n        val results \u003d outContent.toString().split(\"\\r\\n\")\n        results\n            .filter { it !\u003d \"\" }\n            .forEach { Assert.assertTrue(languages.contains(it)) }\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Loops\n\nThere is no traditional for loop in Kotlin unlike Java and other languages.\n\nIn Kotlin, for loop is used to iterate through ranges, arrays, maps and so on (anything that provides an iterator).\n\nKotlin for loop iterates through anything that provides an iterator.\n\nWe\u0027ll talk about ranges, arrays, maps later in this series, but for now the syntax of for loop in Kotlin is:\n```\nfor (item in collection) {\n    // body of loop\n}\n```"
+          },
+          "task_type": "edu"
+        }
+      ]
+    },
+    {
+      "id": 0,
+      "title": "Classes",
+      "task_list": [
+        {
+          "name": "Basic Class",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "// Create a Customer class with a \"name\" property\nCreate Customer Class Here\n\nfun foo(){\n\n    Create Customer object and initialize the Name property\n\n    println(customer.name)\n}",
+              "placeholders": [
+                {
+                  "offset": 50,
+                  "length": 26,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [
+                        "class Customer( ???? )",
+                        "class Customer(var name: String \u003d \"\")"
+                      ],
+                      "possible_answer": "class Customer(var name: String \u003d \"\")",
+                      "placeholder_text": "Create Customer Class Here",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                },
+                {
+                  "offset": 94,
+                  "length": 55,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [],
+                      "possible_answer": "val customer \u003d Customer()\n\n    customer.name \u003d \"Michael\"",
+                      "placeholder_text": "Create Customer object and initialize the Name property",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.After\nimport org.junit.Assert\nimport org.junit.Before\nimport org.junit.Test\nimport java.io.ByteArrayOutputStream\nimport java.io.PrintStream\n\nclass Test {\n    private val outContent \u003d ByteArrayOutputStream()\n    private val errContent \u003d ByteArrayOutputStream()\n\n    @Before\n    fun setUpStreams() {\n        System.setOut(PrintStream(outContent))\n        System.setErr(PrintStream(errContent))\n    }\n\n    @After\n    fun cleanUpStreams() {\n        System.setOut(null)\n        System.setErr(null)\n    }\n\n\n    @Test fun testSolution() {\n        foo()\n\n        Assert.assertNotNull(outContent.toString())\n        Assert.assertTrue(outContent.toString().trim() !\u003d \"\")\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Basics of Classes\n```\nclass Invoice {\n}\n```\nThe class declaration consists of the class name, the class header (specifying its type parameters, the primary constructor etc.) and the class body, surrounded by curly braces. Both the header and the body are optional; if the class has no body, curly braces can be omitted.\n\n```\nclass Empty\n```\n\n## Constructors\nA class in Kotlin can have a primary constructor and one or more secondary constructors. The primary constructor is part of the class header: it goes after the class name (and optional type parameters).\n```\nclass Person constructor(firstName: String) {\n}\n```\nIf the primary constructor does not have any annotations or visibility modifiers, the constructor keyword can be omitted:\n```\nclass Person(firstName: String) {\n}\n```\nThe primary constructor cannot contain any code. Initialization code can be placed in initializer blocks, which are prefixed with the init keyword:\n```\nclass Customer(name: String) {\n    init {\n        logger.info(\"Customer initialized with value ${name}\")\n    }\n}\n```\n\nDeclaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:\n```\nclass Person(val firstName: String, val lastName: String, var age: Int) {\n    // ...\n}\n```\nMuch the same way as regular properties, the properties declared in the primary constructor can be mutable (var) or read-only (val)."
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Data Class",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "\n// Make the Customer class a \"data\" class\nTodo class Customer(var name: String \u003d \"\")\n\nfun isCustomerEqual() : Boolean{\n    val customer1 \u003d Customer(\"Michael\")\n    val customer2 \u003d customer1.copy()\n\n    return customer1 \u003d\u003d customer2\n}",
+              "placeholders": [
+                {
+                  "offset": 43,
+                  "length": 4,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [
+                        "use the \"data\" keyword"
+                      ],
+                      "possible_answer": "data",
+                      "placeholder_text": "Todo",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n        //TODO: implement your test here\n        Assert.assertTrue(isCustomerEqual())\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Data Classes\n\nWe frequently create classes whose main purpose is to hold data. \n\nIn such a class some standard functionality and utility functions are often mechanically derivable from the data. In Kotlin, this is called a data class and is marked as data:\n```\ndata class User(val name: String, val age: Int)\n```\n\nThe compiler automatically derives the following members from all properties declared in the primary constructor:\n\n* equals()/hashCode() pair;\n* toString() of the form \"User(name\u003dJohn, age\u003d42)\";\n* copy() function (see below)."
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Properties",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "\n// Add a custom setter to PropertyExample.propertyWithCounter so that the counter property\n// is incremented every time propertyWithCounter is assigned to.\nclass PropertyExample {\n    var counter \u003d 0\n    var propertyWithCounter: Int? \u003d null\n        setAdd Custom Setter Here\n}\n",
+              "placeholders": [
+                {
+                  "offset": 253,
+                  "length": 22,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [
+                        "Use the \"field\" identifier to set the backing property. ",
+                        "field \u003d value"
+                      ],
+                      "possible_answer": "(value){\n            field \u003d value\n            counter +\u003d 1\n        }",
+                      "placeholder_text": "Add Custom Setter Here",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n        val propertyExample \u003d PropertyExample()\n        propertyExample.counter \u003d 0\n\n        Assert.assertTrue(propertyExample.counter \u003d\u003d 0)\n\n        propertyExample.propertyWithCounter \u003d 1\n        Assert.assertTrue(propertyExample.propertyWithCounter \u003d\u003d 1)\n        Assert.assertTrue(propertyExample.counter \u003d\u003d 1)\n\n        propertyExample.propertyWithCounter \u003d 2\n        Assert.assertTrue(propertyExample.propertyWithCounter \u003d\u003d 2)\n        Assert.assertTrue(propertyExample.counter \u003d\u003d 2)\n\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Properties\nClasses in Kotlin can have properties. These can be declared as mutable, using the var keyword or read-only using the val keyword.\n```\nclass Address {\n    var name: String \u003d ...\n    var street: String \u003d ...\n    var city: String \u003d ...\n    var state: String? \u003d ...\n    var zip: String \u003d ...\n}\n```\nTo use a property, we simply refer to it by name, as if it were a field in Java:\n```\nfun copyAddress(address: Address): Address {\n    val result \u003d Address() // there\u0027s no \u0027new\u0027 keyword in Kotlin\n    result.name \u003d address.name // accessors are called\n    result.street \u003d address.street\n    // ...\n    return result\n}\n```\n\nGetters and Setters\nThe full syntax for declaring a property is\n```\nvar \u0026lt;propertyName\u0026gt;[: \u0026lt;PropertyType\u0026gt;] [\u003d \u0026lt;property_initializer\u0026gt;]\n    [\u0026lt;getter\u0026gt;]\n    [\u0026lt;setter\u0026gt;]\n```\n\nThe initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer (or from the getter return type, as shown below).\n\nWe can write custom accessors, very much like ordinary functions, right inside a property declaration. Here\u0027s an example of a custom getter:\n```\nval isEmpty: Boolean\n    get() \u003d this.size \u003d\u003d 0\n```\n\nA custom setter looks like this:\n```\nvar stringRepresentation: String\n    get() \u003d this.toString()\n    set(value) {\n        setDataFromString(value) // parses the string and assigns values to other properties\n    }\n```\n\nFields cannot be declared directly in Kotlin classes. However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in the accessors using the field identifier:\n```\nvar counter \u003d 0 // the initializer value is written directly to the backing field\n    set(value) {\n        if (value \u003e\u003d 0) field \u003d value\n    }\n```\nThe field identifier can only be used in the accessors of the property."
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Inheritance",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "open class Building(var name: String){\n    fun info() \u003d \"A building called $name\"\n}\n\n\n// To create the house class, extend the building class.\n// Add an additional property, rooms,\nclass HouseComplete the house declaration \n\n\nfun testHouseMessage(house : House) {\n    println(\"${house.name} has ${house.rooms} rooms\")\n}\n\nfun testBuildingMessage(house : House){\n    println(house.info())\n}",
+              "placeholders": [
+                {
+                  "offset": 192,
+                  "length": 31,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [],
+                      "possible_answer": "(name: String, var rooms: Int) : Building(name)",
+                      "placeholder_text": "Complete the house declaration ",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.After\nimport org.junit.Assert\nimport org.junit.Before\nimport org.junit.Test\nimport java.io.ByteArrayOutputStream\nimport java.io.PrintStream\n\nclass Test {\n    private val outContent \u003d ByteArrayOutputStream()\n    private val errContent \u003d ByteArrayOutputStream()\n\n    @Before\n    fun setUpStreams() {\n        System.setOut(PrintStream(outContent))\n        System.setErr(PrintStream(errContent))\n    }\n\n    @After\n    fun cleanUpStreams() {\n        System.setOut(null)\n        System.setErr(null)\n    }\n\n\n    @Test fun testSolution() {\n        val houseText \u003d \"My House\"\n        val houseRooms \u003d 3\n        val testHouseMessageString \u003d \"$houseText has $houseRooms rooms\"\n        val testBuildingMessageString \u003d \"A building called $houseText\"\n\n        val houseTest \u003d House(houseText, houseRooms)\n\n        testHouseMessage(houseTest)\n        Assert.assertNotNull(outContent.toString())\n        Assert.assertTrue(outContent.toString().trim() \u003d\u003d testHouseMessageString)\n\n        outContent.reset()\n\n        testBuildingMessage(houseTest)\n        Assert.assertNotNull(outContent.toString())\n        Assert.assertTrue(outContent.toString().trim() \u003d\u003d testBuildingMessageString)\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Inheritance\n\nBy default a Kotlin class is closed (sealed). Also, Kotlin only does single inheritance but can partially do multiple inheritance by composition.\n\n```\nopen class Base(p: Int)\n\nclass Derived(p: Int) : Base(p)\n```\n\nIf the class has a primary constructor, the base type can (and must) be initialized right there, using the parameters of the primary constructor."
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Smart Casting",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "fun eval(expr: Expr): Int \u003d\n        when (expr) {\n            is Num -\u003e TODO\n            is Sum -\u003e TODO\n            else -\u003e throw IllegalArgumentException(\"Unknown expression\")\n        }\n\ninterface Expr\nclass Num(val value: Int) : Expr\nclass Sum(val left: Num, val right: Num) : Expr\n",
+              "placeholders": [
+                {
+                  "offset": 72,
+                  "length": 4,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [],
+                      "possible_answer": "expr.value",
+                      "placeholder_text": "TODO",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                },
+                {
+                  "offset": 99,
+                  "length": 4,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [],
+                      "possible_answer": "expr.left.value + expr.right.value",
+                      "placeholder_text": "TODO",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n        val num \u003d Num(1)\n        val sum \u003d Sum(Num(2), Num(3))\n\n        Assert.assertTrue(eval(num) \u003d\u003d 1)\n        Assert.assertTrue(eval(sum) \u003d\u003d 5)\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Smart Cast\n\nIn many cases, one does not need to use explicit cast operators in Kotlin, because the compiler tracks the is-checks and explicit casts for immutable values and inserts (safe) casts automatically when needed:\n```\nfun demo(x: Any) {\n    if (x is String) {\n        print(x.length) // x is automatically cast to String\n    }\n}\n```\nThe compiler is smart enough to know a cast to be safe if a negative check leads to a return:\n```\nif (x !is String) return\nprint(x.length) // x is automatically cast to String\n```\nor in the right-hand side of \u0026\u0026 and ||:\n```\n// x is automatically cast to string on the right-hand side of `||`\nif (x !is String || x.length \u003d\u003d 0) return\n\n// x is automatically cast to string on the right-hand side of `\u0026\u0026`\nif (x is String \u0026\u0026 x.length \u003e 0) {\n    print(x.length) // x is automatically cast to String\n}\n```\nSuch smart casts work for when-expressions and while-loops as well:\n```\nwhen (x) {\n    is Int -\u003e print(x + 1)\n    is String -\u003e print(x.length + 1)\n    is IntArray -\u003e print(x.sum())\n}\n```"
+          },
+          "task_type": "edu"
+        },
+        {
+          "name": "Extensions",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {
+            "Task.kt": {
+              "name": "Task.kt",
+              "text": "/**\n * This extension takes a list of strings and filters out any empty strings.\n */\nfun List\u003cString\u003e.removeEmpty() \u003d this.filter { !it.isEmpty() }\n\n// Create a \"wordCount\" Extension for the String class. The method name is case sensitive.\n// For now, let\u0027s use split(\" \", \".\", \",\") to determine the words in a string.\n// Also, use the \"removeEmpty\" extension to remove any blank elements.\nImplement the WordCount Extension here",
+              "placeholders": [
+                {
+                  "offset": 390,
+                  "length": 38,
+                  "subtask_infos": {
+                    "0": {
+                      "hints": [
+                        "fun String.WordCount(str : String) : Int { ... }",
+                        "Use str.split(\" \", \".\", \",\") to get an array of words. You\u0027ll need to use another method to remove potential empty elements... and another to the count... hint...",
+                        "this.split(\" \", \".\", \",\").removeEmpty().count()"
+                      ],
+                      "possible_answer": "fun String.wordCount() : Int{\n    return this.split(\" \", \".\", \",\").removeEmpty().count()\n}",
+                      "placeholder_text": "Implement the WordCount Extension here",
+                      "has_frame": true,
+                      "need_insert_text": false
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "test_files": {
+            "Tests.kt": "import org.junit.Assert\nimport org.junit.Test\n\nclass Test {\n    @Test fun testSolution() {\n        val testString \u003d \"This is a test of the emergency broadcast system\"\n        Assert.assertTrue(testString.wordCount() \u003d\u003d 9)\n\n        val testString2 \u003d \"I, am not, grammatically correct.\"\n        Assert.assertTrue(testString2.wordCount() \u003d\u003d 5)\n    }\n}"
+          },
+          "task_texts": {
+            "task": "# Extensions\nKotlin, similar to C# and Gosu, provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator. This is done via special declarations called extensions. Kotlin supports extension functions and extension properties.\n\nTo declare an extension function, we need to prefix its name with a receiver type, i.e. the type being extended. The following adds a swap function to MutableList\u0026lt;Int\u0026gt;:\n```\nfun MutableList\u0026lt;Int\u0026gt;.swap(index1: Int, index2: Int) {\n    val tmp \u003d this[index1] // \u0027this\u0027 corresponds to the list\n    this[index1] \u003d this[index2]\n    this[index2] \u003d tmp\n}\n```\n\nThe this keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot). Now, we can call such a function on any MutableList\u003cInt\u003e:\n```\nval l \u003d mutableListOf(1, 2, 3)\nl.swap(0, 2) // \u0027this\u0027 inside \u0027swap()\u0027 will hold the value of \u0027l\u0027\n```\n\n"
+          },
+          "task_type": "edu"
+        }
+      ]
+    },
+    {
+      "id": 0,
+      "title": "Collections",
+      "task_list": []
+    },
+    {
+      "id": 0,
+      "title": "Edu additional materials",
+      "task_list": [
+        {
+          "name": "Edu additional materials",
+          "stepic_id": 0,
+          "position": 0,
+          "task_files": {},
+          "test_files": {
+            "codemash_kotlin_course.zip": "PK\u0003\u0004\u0014\u0000\b\b\b\u0000œ„–K\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u000b\u0000\u0000\u0000course.jsoní½éVT×Ö\u003eþý½Š\u0012u\fP(ªh\u0015?(\"ö]\u0014lË¦š]PR\rV\u0003\"jˆ]Ô$FA\u00135h\u0000\u0005\u001bP±AQ\u0004ÇXsT¾x\u0017¹�ÿ-üŸ¹æÚ»ª\u0000M\u003cÇ¼\u0027çýÅs\u0002Eí½W3×lžÙ¬µ»ÿÇå*ŠZ©T\"ž*ªsíÇŸ.W·þ‰\u000b‘\u0010¾ó”Ú¦#é¨…oŠ6ÄÓÉD(\u0013LG\u0012ñ¢ÜeªíP4’J;\rå7¦o‰ûcº�õV4š(uíN$£!§\u0001}G*mµG‚‡\n{ÖWÚ\u0013©ˆîpö\u0005Ýo8‚YàR~w¸Ö„kî¶ôœ\u000byc±o)�}CÚ:Æ\u000f\u0016…3qWÌ\u001f‰\u0017û“-©:W}2éïòe\u003cžÊàÎt2\u0012oÑŸ­’n_œ\u001fkÇWéh¼x;ÿv¥\u00121+ÝŠ›\\‰LÚÕj%­\u0012_üäÜ¾Ú£þ Õšˆ†¬dª€|ó‘Ñy*\u0011\u000e§,\u001ecUåì\u0016õõ¨\u0015oI·âzEÕ¼×S™€\u0026^$\u001eNÌ%žs›ç£—p\u0011“KÏ?dç–�þ®\u001c!Ün·Ë\u001fïÒŸK]IË\u001f�v¹ç\u0010$ïé†D\u0026\u001ar\u0005,WW\"“tñª¹]Îw\u003ea%á$·¯ÈµÁ\u0015ÊÄã\t·«è#-\u001eøXWÌ`©H j\u001dòÇS�V’—¾ y_ÑG‡™¿~‡l¾ù\u0018\u0007|¼•VêP8)|™Nf¬�Þ\u0018·¬\u0010V-e%Óvwa4eÍ{ÿÉy¾�ûÝìo\u000eüÏÇ®ž,”\u003e+•þ¨ôáZJÄ¯(\u0012kO$Ó®D²Å}$\u0013�¤Ýõá´•ôÅç~ŸâiÍsaµ\u0015N$­y.p7Î×Gü\u001d~w$á^Ý•¶´¨nË¤Û3iˆªå�Í¹K¯‘}Í\u0017\u000fFý©”‹Ûsuóß\u003c\u000b\bt‡?m¹:üQ^Â†D\u003cma]µÔ‡\\óvS\\2÷Q+™ü³�ÊÃ«ìùò\u001f¬ƒ êÍírWª¸Äeô\rÿÛÙ\u0005µ\u0019sã\u00064Uœ7§âÜ€KJæ»¿1™,¸?7Jûþ“ÎxÌ‚ÙÃ\tF-üO\r(ž‰F?Ú{ÞEÝ•éL¯\u0001wÃüµ3\u0011Í°ê—Nr-\u0019­Ì$\f\u0017û ­%%ù—…“Ü~ýkk\"½\u0015]åQÄ�Nˆ\u0002/Î§MÁCM\u0010ÂùŸpã7\u0016ËµÀ,¦îÝ™ÆÉ¢�Ë\u000b+\\–Ùyä…¯±¬ìNFÀ5ü—+d¥‚ÉH;Ï^+\u000fW\u0026Åº$æO¶…\u0012�qH�«5\u001d‹þQ]íÚÖY¡LîÎ¼ûæ5Ò›\u0013‰¶RôTêŠ\u0027\\Z2\u0016üímuy¹«\u0001üÈÔkµ˜4FÁê¤21X‡t«?\rº¶Y)Wº3á\u0002ß[-VÒÕîg¥\u000bîNÁ4…\\þP(ÅÏÇ\\éD\u000b”7sý\u001a\u000b\u0014H~¤Ùyµú¿kÓ—Õ|Ú¦Wzÿ“6]+¤L¬ø˜«Î\u00058Xêê’\u000f%òëS\u0006ý\u000f\u001euùâF“$­t\u0026\u0019\u0017u\u0019tì¨À­Y2–ÿï³,ü\u001f\fföXŽ¹–ººæCp¹\u003eæA\u0002ŸÏ\u003c¹¥ø\n\u0012|Ìô‹…ŸmŸ¹ÁO\u0019\n»Ó¹*�WÜSêª(1¶Ø(ñŠOÚ\u0001~È;÷¡Ê?|¨bîCU_ÌV,t­5\u001c•r1‰šãÑH›åÚ\b€Sêê´\\A?\u0018\u001c\u0004�vÁ–\b\u001búsLØ\u0019I·2.ÅM\u0016¨›ÐÆESÙíÚšpÅ\u0000@\\©´?\u001d\tº@Øh$Ý%W­Ô\u0002î,×u$îÚ”HGñ‹{0\u003d…Œµ2|ïj³º:\u0013É�ÛÕ„/ŒD±irERx$žHã\t?£\fýDN+»}ñÃ‡\u000fûâÜF(‘�\u0004\u0017\u001f\u0013)\u0015�Q(£\u0015®%®c «yHô\u0005îC£èÇ:æ\u00071,M›VG\u00015\u000eKã‡óí\u0004(c›\t?¦™ææ*jS¹Ñi“!]‹ùÀˆÜ‚d\u001aàÜðüÃ\u000e™2)K›\u0016È²?¤M$ ¡¿½\u003d™ð\u0007[ëø\u0019\u003df\u0006ŒI+•‰:`ÑL›9TfåÐ¾ÀziÚ‡#q‡ôÛý© \u001a\u0003mý|s©+â†ÿÄö´N“Þ�;\n\u001eOYÜ^Úi ˜ˆÅüà†F\f0oÒ±\fÄ\u000e\u000e˜u¬\u003d\u001a\tFÒ`/n.T—·Tí\t(Y ³x\u0026\u0016°’F¿â�D\u001cXÊhY,\u001d\u003cB{µþ\n\u0018S�¹CÇº:á…¦\u0013®N�­œ\u0015ùo@4;,\u00194ó�m5\u001cž…Ä�ž.ð\u0019lâšD\\ø3í\n¶\u0002\u0006¹]ÛÌ5Ü4ŸŸýo\u0007\u001e*þ ðPû·\u0000)¶m7Lgd\nŒ÷e1ÄüÝhÌð™€ás×1G•ðÂ?xáÏâ…bèþ´žE¾)\u0007b(u�\u0015\u0012¥FÁÃ\u0012¥`\u000fØ¶»Ø\u0026D\r+v¶\u0026Rsì8DÚJÂô»5\u001ai„L|ÔxÛ\u0002b\fö_¤ÿwù“\u0011€™ëï®ê�@³\u001dK†îwF¯�\\ \u000fZ\u0001�Ä2i¾æ*îð\u0027\u000bùÅWÔa\u001etÂ\u0012|O¬Kâ\u0017pnÌ‡¼ð…ÜæÜâ\\Y›HðEgH«�\u0017aŠºôˆ˜Of\u000f+\u0012Ë\u001bXtîÀ¢\u0019ŒŠ#\u0017ðÔCe¬Ðœ!Fs\u000ft¤«ýI{°\u0018Íìûón;Ž^ø\u0016q ËÊ\u0000;Á �:v\u001cô\u0003Š�Ÿ\u0001oÚ±¢IŽÏ%’y³dˆªy:\u0011Æm65íU°¹\u001c2`Á\u0006§…óÁ6þhä¸\u0015Ê›Ž¹±‰›²ù\u003d¿\u001bþ\u003ei\u001dÍDœÖâ‰¼¦’Ü2àaG$d… �B{P9\u0015i‰Ç8šèð…t”ë:h\u003cXþ;h÷]éôì|Uõy4Bgr�ÇáÐ¥ÓÏÃ´:\"‰L\nXPÆÇ£ù\u0013ÉŽÿ6;ñ)ýí“‘0àv±×eñ\u001aaeÃ\tqjX‡øŠJµmþ‚:ÝQ\u0013Úñ�€I:™°£%[áZÕ1K\u0027-ÛaT¬}³Dnœf”`\u0000nÙíÚÈ Ÿ…T\u000f\u003d˜\bYÚÁ\t\u0002ñ·\u00194\nxÂŸõ¬˜;Ó\tÓ}y~ÿ\u003cª¦\u003cïË•jMt¦\\øÁý;~i\u003c”Çù\u000eo¥Ä”Ôk‹d{´–5ûi£\u0006ÊsÚÇi€MW›öNÝ\u0005.–ß\u0004œD\u000e¼¶\u003e±B\u0011Ž ædLî\u000eäì•¾ó0ž\u003d\u003cÇîÉ½\"{Ÿ/á`EGRÍ*£\t[¶\u000b†¤gñW\u0018L\u001eð‡±\f\u0027\u0012ÚVþŸÔ2v§ååMÛÖl«Ë“R�\bå\u0007tìðKh#�ü¿˜:òÅ\u0017ºVûS‘ æ}¨¤…\u000b][u\f\u0000ŸM”È0¼\u0004CÂ‰h4ÑÉÚ(�‰DÓe\u0011�“)ˆ\rƒOŒ™¯I\u0018\u0001¨Uk(üŸãU\u0016«\u0000\u000ev•Ø‘\u0007îÓ—^\r›Ü\u0019\t¥[Ù)fÐéK×T\u0001åF\u0013þ´/]\t\u0013¼™µ“þ’­dšgÀ_ïlÅâùÒÞ\u001a_œ\u0013t¾ô2\u0027âÂ� Ì\r`4eí\tÎîÊ0¡~\u001c˜û‘î]®š*—é_÷äršÕ‘\u0015™œh\u0013øpXÙh;þÎEŽtH*˜ˆw`m]ád\"¦ÝþüÇ@\b¿Ä:ô`Ò\t\u001eq\tlM\u00023”\u000f\u003ciù¤G\"\u001fe„ò¹¡ÕŸ”Oš\u0010Å%‡óôe¬+O]._VkË­Ú_ë{ÜvOÎ$Á\u0002«\u0013\tN\u0019¦„�æ/£?�èaD8\"\u00055 ¡d\\/®Ûµ\u0001\\¬‘£�w¬ˆŽê°\u001de(©9X\u0002‹\t\u0010Î/D\u000bERGì@Iñ‰\u0013˜\u0017(˜ûFÛÂ\u001aù‰klâV‹_..(±»B{\u0010\u0018˜\u0005�Ü\u0015È\u001bwªÔu„M¤\u0013qu\u0017\u0010‹EÐž¦¡\u000e\u000f×¾¼–‡\u003cëºžF\u003eÑ\u0004Õ‚fæƒ\u003d¦ Îr…t\u0000×¦…xW®£\u0019Xû\u0014\u0013\u0005�´;_¸9\u0004ê\u000fIÔ‘™…9ªÔe¥‚~¬@\u0010ëî\u000fê( é!“²›/h·pŠ³Aw“\u0011M¿\u00198\u0003u�ýÖ½|üî”\\ÑÝÅ­Nñ/} A‘-V\t3åÜÍZ\"Ríà(ØþhZO•ŸÓ\\£™\bz2\b‘�˜p¯\u0006­ù$©ËŸ‹iBÆ¸Y·“ï\u001c\u0015åô¬\u003dìp$©\u0017?nÍ½–²Ài¡�\\„\u0002K†Ì\u001cMÛ\u0018\u0007nàE·ÃèìX¥2ílKRö”9\u0012�lOD…E±Â6),(w¿^d‡¦q—\u0005\u001dœ\u000b|²j\r¹B]°°ÐÌ)ÃN bœ…\"ˆ§ã\u0026DÜÙ\u001a�Fb7€)l\bçHb³\u000e\u000bÏîØAf\u0012RÊÃ^,U\u0026ˆ`2\u0005¬¨L\u0003³ðX0˜ÈÄÓ«ýQ\u003c˜s—\u003c\u001e\u0003Àüñ¶-hÆßbå–f/\u001bCó î�\u00271öE…�\u0001�\u0002H}ìfÝ\u0005/Á_ƒ¨¸ð@#Òÿ\u000ehå‹ƒTÍÆÃ³¢\u001d �èTV)\t;àãqEÂ\"f†7\u000130O\tôà»ÍV|§?l\u0015§l\u000f~eI\u0001ÜfTÃ«ï \u001fÜlWW¸f\u0015Óå5ç+ò\u0007‚Réñ‘;tEÉ_Rf·¼úÓÑîÿ…*»Ï\nL§Vºel®•à¡Ï\u000bAóòü\u0013fþ/©Tã9üS§ö·­S›­ÞþÅ\u0012µÜc¼PÜè\u000e�#v€J®\u0014®’½:_‘Ç‰þÚO%\u000bŸ˜¿¶-Õ\u001e�¤¹ Î—Ô\u0018,¯\ró¼\u001brÄiànŽ}æ×À1q\\³þ¹Á\u001fÚÉéžÇEÍ›†\u001b8$í‡²(Ž`Yí–¾Dx¬Ð\u0000Û\u0018Ë\u000e…i\u0017$¥W[#§\bC} \u001f+\u001a‰EâÚÝÓ†.ä�s\u0019@\"¬\r\u001dH\u0011†û\r\u0004‘\u0012Œãc’8qµÅ¹6Ï/¾Œöv\"Ñ(C¶5ðtýI×–HŠ«\u000b4úáÌ^B,i,‘Jë„;gõ#i(Ê¨\u0006³1¼‹\u003dæ\u0016hÜ\u0018�\u0006À¥%\u0003\u0018\u0004Ø\u0015�*È„øK)ùˆ\u0018W‘ÃÖÁ ƒ.\\ò»b–v\u0014u0»pô¥fM\u0005_Î¹\fì\u0016´tý¡v ¸\u0013\t\u0011vÚ5Ø\u001a%\u001cÍ@…DYkè.˜àÛ\u0013\u001a®6ÚÏ3^Ýº½Q\u0007\u001fRì\\ºsp÷“K\u0001Ìa/…5oËöÓâ\u0016\u0003âñR\u0018g0\u001e\u0005éŒi”ˆvŠ‡ˆ�ØOÅ€�\u0003:DYæª�;\u0015\r¸\u0019tÐ~R2Ñ9o¿Å%+ø¡f�HÍ\u001a.X�\u0003K|±ñ\u0018žà*\u000fM9\u001dCeÿ^�$\u0004éÑ-\u0014Df¹Ò\r¼–öóÚ\u00021ƒW°\u0010]â\u001c%áŸ\u00265Iœ\b¢ñW�½acr9\bY%t\u001a\u0011Ö×kËíÁ^\u0007yt‘”øxÜ_§Þš \u0017dƒí‹—Jˆ(oEàN3›d\"©VP1`¥;-+ž/\u0007\u0012¤ÀH\u0018L\b#iÅ©\u0007�»¯D;\u0005i�\u003et\u001eá\u0018Uq\u003c\u0011/›%\\%n×ZŒÖ©Ûñ3\r2,ENò�IÏÃ4þ¥Ýš3ˆüÂš$G}g;¢\u001aRúâ~û\u001b\u003d\u0004Î‘èÌ‡\u0010Ø$ˆìX\u0010|\u0018\u000eZé[sÞO®ÄÊ\u0019œ_p±þ,P¹T\u0017¡`Qm`\\—7º€\u0003—ç\f/0{x‰¶¼PÁBW\u0003Çâu½\u0011è¥ï‰hßN\\~¨½µì°–rüP\u000f6¯vGÂø\u0000ô\u0001\u001bÇK8\u0004Þa(*\"Î\u0005³‰v‰«ØEBÑ®|\u0017ÚNõq;Å\u0001Ç,hËé\nØPÔ\u0002ús•y�‘kŸÌ¸ËÒ~.\b\u0014¶D\nm‰ÊQn¥Ûî9`ƒ\\;RÀlo×c9½:S\u0003_ä¦§‰¤Cf�\u0011;|d\u0027ýLµ˜í¸òÃð^VšÒ.¦w£v�¶™±ùâ»9¶Ÿ++›Ëø®d.�\u0001¥ã+Â¨’…£Ò®6ÖÈ\u0019”þF«\u0004G6$\u000evÌWT@ü\u0002çê3V \u003eš°#/’åa1ƒ¢�„Ër³/\u0015rØ±7§\u0026Ày¬±ÀMÌ[§ºy9$�ï™8CÙ *4�èZýZ®¨\u0015Ö†\u00057\u0017Pk\u001e\u0007Õ^ùB\"FÒÎ…ù{HFZZÓ\\ó˜6*Éù²ŒeÀ•Š„¬YÜ`ñ:è œ62Æ\u001bæ¡æ\u003db¤ÉmóL“˜ˆ\u001cÓh–Óñ \u001có‡ÅR–E\u0013\u001dpTët»˜´¬¾`\u0027mOí9\u0017/à`¥Ä†9àÒeXD\u0007Z\u001c¶ÑŒ-Š7ÉÙ7­\u0001lÛlF/ÏÙƒví\u0016f•ò³À‚\u0005¥æy6ÿ\u0011­¥u(À?›7\u0013,mÅ–»Å]ê„\u0002u¥ZÆQä%:@©M+z`\\�¯}ægš\u0005\u000bf‹z†\u0011PXk´N\u003cmšÊ©8-ŠÌ\nœ8ç/õ\u0017L—T›\u00263\u0018#§\u0006ezø*”°„Íüíí\u0016”2—È\u001aû\u001eÀüÜM˜H#\u0004\u0018\u00161¿û0QC¢½K“D�»A#›¿b#„çÓA—Šù÷\u003eþç¢.âšoÇd�\u0010™�¥Úv§±ý:ÐÙbI\tÔçÅdþ,Ås\u0013ø*Ló×ä_\u0019”µëÅ´õ�YZI®²£íýãmgÒÂ\u0017¬ø\u0010GÌV\u0016P\u001b‰¨ w ²häHy}\u003c”LDB`;x‡\tísø5œãd@\"ª•Ÿn#duXQ6%04³\u001a5\u0026ÅJJ\u0005†FVúá˜.�gÝéOéä‚�˜\u003câ89ø²Ín%$žn\u0013WŠ\u0005\u0019Ê„ý±H4\u0002ÂjüÀú\u0019\u0016ÁŸbôa8\u003c—\u0012–U+Ö9^­ŸÛý©´vgŒéÖ™pf˜\\2¡\u003d\u0013€JwåKâì0Y8ÂN™1M,¡+æ»Î9^\bë\ng3¨4l8 ïéRûÖ\u0002ÞaKéæË\u000erÏuä\\ÏKgHW†E\nz4]µXé­h¢�C�\u0015Îk{öÓ\u003c6\u003cZß2ÿ“\u0005Ýþ\u001b•øæ“Hºyê\u000f\u000f\u0013àøS\u0012\u003cµ\u0016ëý/\u001d\u0026\u0000ÔØè\u0000³¿½ÕÔÉ•\u0006\u001bdk(åÔòçvË\u0000ÓäÀ¦äHbþcÅ~Sa\u001e(, �7VÿïšÝÚùK÷ÿ¶ÉŽH¸Øøï\u0000iÐ\u0014âæ\u0004þÉzü\u003dÌé§Ê”˜µ½\u001e¶£…ÅÂ^Ï\u0027kåõc¥|×G\u001eû\u0012v¶@»ÌŠ�AJM¦\u003dÏQÖ\u001b¬òüM¿øDn\tòqª„%\u003c)^\u0016,\u0018G\u0007“]yÎœ\u0013±q­ä;ã®:ÍÊ%¥Nåm\"\u0019Šè‡0€ÎD²�K\u0011âb\u0012uð#¡m¡¶„\\€˜·Õ,#És\u001di\u0002ù\u001c»ƒ¯8d`\u0004(È\u0002”w9ÀóFK»#vôÀiÁÔ\u0018ç\u003d¬¥Ï0D~\u0017X\u000byvîµ€¶:.ÝG}AÐÅÔfän�Ý‘-æN8‰½È¤?\u001elÍ•Ì\u0007¢‰`[Êö]á¢\u0003@Ìòås¾¯\u000e_ë\u0027\nªC\u003e\u003e‚üT50aCk‚Ãš~\u0027k2gâ³î\f8w\u0006þÊmp:8õ_d\u0027Y‹DRÛB!g·Hn?ÕbW…\u0013ÛòˆuŒ¤\u001a;¬øì�%rk�rðä×\u001c0Qr4Éß¨hoÁàzÝn\u0013Ú3ÅvzT¥²ŒšqxO«ËW„o}EnWá­\u003cªyîå¯í’¢“E©‚×û\u0007;ó–Íý?g¿ík²èBÀ\u0012W™\u00114»ÎÃ�9Ï.˜•ÿø\u0003BëÏtµÿš\u0005ÿ\u0007ZüSPñOAÅ¿_P\u0001ú\u0014G\u0018ïx]n7ðž§$o\füo\u001eå\u001e))¼å_,½àp5ŒÖ‰”\u0014LÞ¶ÿø\u0010¡Y;äŒÂ*lvV]\u0005\u0003Š/ÞñlÕZÀ\u0006ö¿¼\u0006¹6?�_Îò\u0005K6fá\u0015_\\ïœIZZY›ü`g$\u001dlÍ!g@·†2]‹íÔG¸åÜ\u0007KŽÀÐ¬•HÆ\u0018žG\u0013\tàf}7ƒfƒõt\u0027ÅÇœEõ\u0016Ú\u0013X“c³|\r‡`\u0015tk…s«$àÌÝÝœÉ5y\u0027ƒUs\u0004Í5ÅÞ‚©óöÂoHæ5w2ï°\u000b™AÌŸÖ\u00008Âé dKFo\u001bñ·pmMšóÖ9ˆœ²Žfx\u0005\u001fÃçÊàCT’�rC.{¬kšýéH*\u001cá½½º—üBq34ÿ,wˆ“\u003c~)ð†\u003eäa¸Ù£’\r“úÁÙO”\u0016bqÉ\u0003›~íQI\u001415÷NÎ—ñôrÍÍ×]n0y�éª�\bfÛ\u0011\teüy\u0014ât~¤\u0005\u0014çy\u0017otêý%t\u0019.uY\\ÚdÓKHb\u003c\b;Ÿ”ÊåÕæ\fyŽ3\u0012Ïñ�»ÄÞv\"NŽôQ�z„7\u0012Oä*ˆä¨‹Ù‹gNöÈ-\u001fh\"\u001bW?¹\b³:�a2,g]¥`\u0014\u003e3ÔÉ\u0017ëÍ¡\u003cuÞÕcò§¼\fyu7)CÉ /‘�8ž3N)@\tKÁ“\u003c”jµëŒ¤\u0016!äT÷sXµÓß%c�;e)ëáñ\u0005ôy(ºG¿œgR÷\u0011qç\u0018Ä\u001f‰±‡yú£Z @´í\u0016œ\u003c´¾-\u0027«\u0026½ªwÙ\u0026\u0003‘t’}úüZùbÎAêì².Üñ\u0003W—ðbÍ™íGæÓîO¦,Þü“*™3¨\u0014Ÿø“à-XÇ\u003e\u003dúT.\u001d*O˜\u0007þ:_us\"Ñþ÷/“—\u001dˆI\u001e,ƒ\u0016³\u0013‘oÑYkc‚æÖfîÈ\u0004º¤\u003cÓÔ¾éÏÛ»Ò­\tó™s\u001dšÄ¾xƒ½é\u0005öª]$K¯‹-|Ú\u0010§rÊÄtª{û+üÊeó‡}\u001d·²fþlíÿÖ�/Œ\u000buí`Ü¡EÉ\u00179ã…¿ç”ÙÜæg\u0019k¸œ|Ëçfvÿ�eþÇ©üÇ©üÇ©ü÷�Ê|­\u003dOIýg©m»Í\u0002ûðoŸMû\u0005\u000bø\u000b}º?]ÎÿÉRþœ×õ—\u0015òkd`@q.…’—à`\u001d­uhnKq\u0026w\"¢Æã‚‘sƒ�•ÔÉµ`À1×Z§ÙÅ´t½Z¦¥Õ•ä�\u0000œQ`îHñ!¹í²Ñ1•pI-v—9]C4¹ÙëÎÛ#Óâ¬–ä\u0015¿çu)ý¤œŽþ¸!·\u0000I)\u001eç*?´Íå\u000fpÅÚ¼£äÝšI\u0027U„µ‹ð-\\\u001e§«†ùL\r\u0006×]XÀcloæ!hÄÙ8[`\u0011ƒ‰hÔÒ‰lGzáÙ\u0006\u0012¡.n‡Ûø\u000f\u0014\u0017Èa•ÿR]�\u001ca [øÛcÑÜ¹Ç~W\u0003\\T¸ÇISþbü\u001eŸn\f\u0012\r\u0026j‡Äv9ØÒ¹_OÕµ^Ÿ)!9’Ü\u0001\u001bÜÛìû\u0013�#XïÙÇ¶0ûp�J^G…[5ƒæy]\u0018ó—ìÓ¬þ£’Áù�Vþ_\u0002©²,6\u0015‹]+ñÏõq¼8÷\tN½æ×\u0014æïSÿ2h÷³:üW€î\u003c\u003c÷7…±s;ûƒ\u003dÂà UÏ¿‡ø?—wÓÇ\u0015ÙËa\u0016ÖYy\u0007³\u0014\bmný·D‚­~+ú¹¯Æø\u00175Éß”Eþñtþñtþ\u000b\u003c\u001d»\u001dmÔÿO¼\u0027Ã\u001c3¥ã\"\u0006é\u0019`*ì¸!Þ‘ˆ\u0004uáÍIgËˆep‘lÕ“½}f›¥\u0013`‘;¤®7÷w«å‡\u0012s\u0015§Ú­`$Ü¥÷´¤ÍžÕÜ!Üò\u0004X8ÆÑÜü\r—V:è.qª�¤M†Ç¥®T\u0026\t¼\u001f\u000fqŠ\u0003Ïd’Ñ.Žñ\u00069�µ:a¶X™îíç5°æ�ºì\u001bòGWØ›xÌhýÚ9’\u000eò›´“\u0014‰\u0018oÑ\nåª¦å¹ÆX;c¶Ü\u0011D\r¹)€¼õ¦ùœ;àì³ñÏ;kírÅõ!Mrœ¼Þê7ë®”ì½›ïùˆ\u003ek\u003d]¸4B‹:vW[88�;5\u003e·tì†…\u001cêÌ^¦\u0012wÁ¬M‘x^ÇÅúxŸ­y°§$Ÿ‘Ì^µùFì„Ë…*q,SÜ\u003e€]ŸËÔ\u0011�\u0011–Óôc‰P$\u001cqØ\u0026¿\u0019sZþ¬åª›gØ0Ô�Q6¨‡å2Îº\u001e¨lœÞP¸µXÇüí³°Øšë\u001cLþ\t†v…�œ\u001cÄLÙž´Â‘cù;\u0004ù~{N…“pÐF|ö\fXÚõsyê+šhi\u0001\u000ea ÄEt6„Èßù¬û”,Û¢nnôäü¹Ry/\u0007Ë±A\u0018\u0011s^‘Ó˜©ÇŽÉÖò�,x©-\t²É‚OSâ\u003d‡âCÏ»^lØæ¬Y©‰@Íý6™Û0”çYç�›ï‹oÉ\u0004[\u000bÒbœ\u0026²7Jçfg+\u0027g¶Î¹½\u0026«ö\u0011\u003eá¥Ï?m¸¤àø^}Îo‰û¯H\u0005­á}ðÿ\u001d\u003e¸._Ýâo\u0013à:Ë\u000bg\u0007œ÷ôÃ\u0001×_ðn˜�y­ÒŸt´l§\u003c’²ïo\u003cšñG‹ùU5æ\u0018¹î\\þÉ\u0006ìÞ9˜\u003e\u000fµ—Ì½ß.—Ì5àæM99Ä`öŒÌnÖS\u0015ÿ‰×\u001cþGßrh\u001f‰ì¬³Ñu_Ä!ç\u0026?s\u0027\u0003Øë\u001féïz0ë\u001c\u0019þ‚˜8§2å8èÝ\u0016¬—”ùp!�¸Þæ-\u003eæ\f\u003euÞÕžI¶ó\u001fz“Ÿ\u001cžÁl\u0027{ÿ6ð+.‚º€B\u0013K\u0017\tqEBˆ�#±w0ù5¦a\u000bj¿-(w€©†ªa\u003e\u0013 fAýÄ#A]s\u0004ž…³ÇvÅ1±ÒkÁ9$æÀW\u003cÁÕ*r:ŠQ¬l®Sú…xRÈÂ×l£›w_sJë×OîÆ-8éÕ)lñg°Pü\n¤Üxçœ[+Çë˜\u0013htéËg™X}@É\u0012\u003eE\u0007²U\\R\u000eñlåí½`¸v$¹‚/æ|*\u001b\nëR6_‘ž™\u000eîj\u0015¼1ÑÊïoh1VU”øŠt\u0003¢Æs»ÍŠù\u0010í€…\u0019ü5¦{»C‚ÿ\u000eÓ]\u001fbÖ\u0012\u0003ÆA\u0003íQ$\\f\u001a]�rn�Û\u000eFñf˜\u0006\u003eH\u0012·¥\u0012¹C#‚æ»\\ø›O\u0015g‡\t¢gÎ_¶:,0@:’\u0017ÛÊoŽ7\u0015™\u0003ô1\u0002·\u0003\u001e\u000bGâr¬}Òé4·ÉÁ¾2OûšÙ�ãeäÐF›$˜7ÓA´“k§PAR\u0002ÐM_Ü¢WTÿÑ›‹ÿ\u0017¶)|Ü¦7;6\u001d\u003e\u001a¿\u0001Ø\u0015\tqµ${lÌ\u001b˜„øâ~9xÇ\u0026¶ÛõÉ\u0017 r[6ùµ›òE0B±njv%ôÜÎ\n¯Ûœ³Ô)eËUó~\u001eâ˜ŸoþÁ íá\u0004Ž©qÔ‚}JAá×Å\u0005…J…*m®öø\u0014vùôÓv\u001b\u0005\u0011ÆÙ�Ì§ôæòß\u001fwýñvìÖ\u003e\u0019±üS3ñþ«3©ø¢3ùô»¦þÔL*œ™|\t˜™3ï¾¸A›ó\u0005\u0005s@H‡øRN$iž\u0017\u0019•æí€gÛeGÀ\nb\rù·D�WJ\u0016DY ‰¸„6ß@ÎçUë\u0000Š}\u0003 ˜e¥?yK\u0010€ö\u000fÚð§­9ç·\u0015Ür\u003cÒ\u003eo\u0013N¬.!åÀ\u000e£é\u0013ÃÌ\u000b\u003cõAbR�Âqb‰Oó)ùºÄ½Ó’w{j…oŽëÎ\u001d#ã?C™b¿ü®³IUR7—h³_Ai?[ÂÁ§tá»d\\ò1nuÊ\u0007gé\u001cŽ°ƒ\u0007ÜbA\u0012Ñ\fE¾CËrjeÂ¼ŽR ÁÃ²R³\u001f—o\u000bƒcò�\u000eWÈ³ùÁ¿uÚF‰\u0003!öÊ¼™ ÌçX™\u0002\u0018.p\t9QÂÜª¸œ\u001d#ö«·*j¢é\u0015öå­\u0006�WÔ´¤Wì¯ËÝ`+eý–\bû†\u0003®ývœgvC‡ò¢¬¹ûefû�»[ôð?~\u003d5çzžŸ“×C©KZ’R\u0026ó1/ÃàvŒŠóÚ\u001b\u0027¼.\u003c8ûõXŽO—\u001f-.æ÷5Ø\u0017L�yo‘Ó,Í/\bŠÛÞI^­¼\u001cEf@ºÃ*ðã\u0018PÇØCÕÅ^Î\u000eyÇÿ,•ÓÜø|z\u003e—-o)ó\u0012An�º†­õ–\b±©zW¸éUFœ¿;\u003c’ÒI\u0013\u0027\f\u0027ôoá½QÎ‹\u001fø¤—\u0014gµgïF6KQ?Ëó˜µ?)ÿˆH9Er‡ýn\u0014\u003dr[©|¬ëœ÷(wðÆ-Á‹ùp\u0002ßrô`-\u0016ÇÜnî�Dé½\u0004©ü\u0013ßõ»ÒµŸ’²÷Ð@7Iy]{žu0\u0016Ç~o-ë§”�|È7\u0004¡HÒ\nrŒ\"ÏŒˆaÁº$:Ùi*•}+y«Çà�Ã«6\u0004×êÏ‰È;\u0015sàÍ\u0002?Þ¼(¡à)›{�ó\u001a\u001d—\u003d§“ò^h,zÖñ\u0007òWh6 2\u001a³@\nœ-AöQ‰ÎôÍ¹F\u0005cûÔªñ‰\u0004ÒšìÜp ØGÁ~fhö\u003c4\u0015´¥µ÷vÍ!B\"œŸFèúK¢\u0007\u001bâ`£HšßÐð·\u000f\u001f€\f†U]«ù-\u001b\"8… ÃöËt\u0004ŸsWŽ|úŠêåå\u001crv­\u000eq-’b\u003dm¯Ìá\u001b¹7 èdp‚a‚î“ß©\fþ1Ya§!ý\u0012ï\\`#÷î—\u003c—\u0001J1‘ˆ¥Jmà´ž[Í;œÈî\u0027?W.\u0003²Ý\u0012ý„y)G±Ü\\\u0027ÍÌy‰ƒ¯hQ·¾C›ú“:[f£‡qRFco.Êub\u0013uþ~fu#\r\n‰ÿ’êBïò?8Z¡Òû7+ñ*ž\u001dóL\n¥MJ±.Çµº$ós\u000f%ü$»üãÿÿS³õOÍÖ¿[³ÅTÕ²Õ\u0004þÏ+¿ì\u0012\u001d˜ÿv*çÖ\u001d,â³Þûjß0[uÏN7/Êu¦Õt^ƒFGÏmo––žÝä\u003cFÎé$÷~áY“M9“Õ£-vž(Í›cA€f~£Ä-ý«¯Ý˜÷¡Ï\u003c[a~z\u0017\f|¾s\u0015\n§5¯\u0019ü;ÌlÞ•ÿ’g°å° Ód5ûla?‡\u0026ü\u0005Ž‚óRÈ\u0010\u0027·üà±\u0012·KÞ\u001bknÓ¸V×g™\u0017™GrMëM0z\u0017»?i\u000eD\b%r¯–+¸³K§\u0007\rÞÌUÐå\u0003A?ØµÝÎ+ÚÊv�Î\u001e†ì\u000blzõ}¹Ôã†Ù5|óVÕ™Mï|dªöÄyØºÜ-\u0006\u0027²D\\ð\\\u003d”x¾:d“\u001fbË\u0015Ãå\u0010ýœžþ\u0012p¿3Æ\u0015}\r~ý:‰¿\u003d¼gÕÌ\u0027.\u0014óÖü:}(IÁ«Ìr‚$ûïù¶9ÇÂ€5·fbÎæzyûÙ¬\u001bv~ò†‚Íùrrú\u0006èÑ\u0016´Þ\u001cñ‘{1‰¯¨9./¡É;F4\u001b ¶?úm\u0026a@:\u003d\u0027›G1L�(×þ¢Ã§ùwì4wðY÷u|¿äÑ5›é¿s\u000f|ùcIÿ\u0000|ÿÝŽ%eú»%É÷å$ÒÏÞ\u0012³ü¿pÉ˜·eÝ\\Kµ\u0010¹å\u0015\u0011ÿ·–òÿP\u001a4\u000eåi0\tk°üÌ\u001f_Nå.³úâ[*JJõ­•…\u0027|ÍECZùÇY­}FrQ?”šóPõ\u0017ÄE93jJ´rçæ”êš{§\u0012�y‡ãŠì�ç½à\n„µOÏÊKÞå\u000eš-8à\u0027�ô\u0007Û$\u0000\u001cI•é7\u00069owÍ5(o/‰Äìja\u0013\u0018–ªê”~AI1¿Ø§ÄÜ]X]¥\r(\u000f6WèÎ+\u001f²b\t\u003eÛ³\u003eÞ•«\u000b\u000f»Šõ±X³êÅùŸ\u001c]sÌ¼-D‡¯õ­…�éùƒ(ù‘ó“³¶ŠØ“ç½ÒšÚV\\oÌNËKÞ8+`Z\t˜\u0017\u0016Eô+Öôk¤;,ób%¸�¡”¼ŽE\u0012\u001döäd\u0012\u000bòf!×}ñm\n‚B“vÈvö\u000bl\u0000ó$\u000b$?õªœ8a\u000fæÓ]˜ â£-\u001f\u003eqbž\u0019¡}—\u003d‹Ù%\u0002Îdÿý¾ó§åŒ\"7ˆ‚Y\u0017\u000eÇâ�\u0014\u001cÍû¹D·\u0019f\u0027§Ÿ„K„·ùlf-\u000eÌÖeù\u0007;ñØ;[ÁYe¼/žË½\\�Vîµ7³Ïq’wOÍ:™é\u0018\f“­‚r3�u�\u003dÕ‚[Ñ–\u000eÆÌ¹\u0019êJ‚¦ÿËÛô\u001bC™üðtŒÏ(€óò¯íÛÿÃÆôÝÿ¶Ÿñç-\"ïŸ‰ùS­‡ä…\u0018‡‚‰L2e¹�GÚu™ä\u0026^\u0004O¥þYÅ?½ú§Çã\u000bèÿéÏ+~ï¹ó{Oß\u0026såËü\fÌýÞŒíH*\u0011§Ç\"¨m)úeíï\u003d7éWz±”ÎoVO²\u0003Ô¯†\u000foØší[Coþ¿÷Ó¿÷ôë�WÓ0ý¤ÞÐYzFçè•\u001aVOètY7\u0026\u0011Þ°Æõ{Ï\u0000}#Ý 95™�¦÷4E\u0013Áƒòe\u003d]TÏÕð\u001aºL—Ô\u0004þ7èQO³3ü¿S[¶Ñ�4ª»º£»Z\u0026”¢Kò×�ì }ƒË4©Ûª¦\u0019s}¨š¦WšÏ÷ôïå\u0027è\u0017ý!¤¦VÒ¨zç–Ë\u0027äªžtÐM£\u001b[¶ì£ûê­þ:ˆ~\u0003‘­z¤Þ\u001aõF\u003d\u003c¹îhK“\u001aþ½çö\u0026zD\u0003úBX\u003d*¦—{è�\u001aS£¾\"z!ýl÷%wªÑæìŒš‰bŒ›\u0017/�él¼×¯Æ÷¯¢»t9ù¡_ÆmFzŽÎÔÓÍTñ¦­ôHOú–0‚·f·\u0005Ú?Þ®FSÑe\u001fú«Õð\u001e\u0010ë�Œ‘.\u001dÑïÂôXtÖßL\u0017iBÝ£›tû$š\u0010IW£øß»l\u001fõ%ª�Ëò–¨gtÓ\u0017—ët½qù\t,ï{YÎµåÍjú÷Óc\u001bW×ª‰\u003dêÁFÓPE\raâoé\u0007õl×ï\u003d#›éújý@íïg‡Ô£ÍÂ\\\u0027O¶ÒKõ˜^FÃfV§i’\u001eþÖ\u001bG+M\u0007ÕƒäÁr5p\u0002\u003cÐGw’Ô·Ù—îêZN}Üð\u0005zA×;Ôk™sý\u00020\u001d\u003dÑÍÖÒÍÝ]f\f?ëo¼ú\u0026ï\u0006ð”/°\u00177\u003e¤×{š6Ê£t®Žn®ZO×èíúZyåg�\u001aÙ¨Æ2;}iŸOM¬¡É„¾µR..V#ê^¨BåÁ@\u001bé\u0027,±\u001aÞJg\u000fob\u0006{Oý59)õV|è\u0007ÛÞ\u0007\u0015Ž—lJ©‘%\u003e\u001f½ÝE¯!\u0012ôÍ.\u000f\u0016w¢\u001b#z 4\u0010‰«ŽÒSk\u0001ý@ßí¥sé½»¹Ù[ûÔ³¦%¿õ6WªGê\u0011Ýn¯Ü+œM×÷Óû-àþŸé‡\u0004Ý.Ç\u0000Þµî§‡L¦Wôd§\u001a¡;ê-M©\u0001úžÆé•ôC÷è»ß{†Ô“#jP�vÑó¶�4’I.\u0003\u001bV—Ô*Yß@¶o×6úfa5\u0013}ˆ\u001e•P�ŸÞÑýC4¬\u001enNÚ\\\u0013ÜG?g\u0007Ô+ÍŠ[Ôô‘#tC\u003dÚè®\u003dBW\r\u001b¿QÏ7`í\rÍ{eä\u003c-°î8F\u003eYK—õÔ±j/ÕC5†þ–á?!‡›\u0006ï¹án3¢;ºQMå2ÙÞJ5Mg|áu˜ð–fðclgœÞe\u0027ãjÆ\b{-\u003dwÑ\rzT¾\u000b´ÿ\u000ew‚Ñž\u001b2¼£×Q_2šÂàV™æ\u001f\u001c1„ý!’Ó$¢ÿ¼\u0016�ù-\u003d\u0012iÞÝ¬FO�ý©—®�•\u001cTÏ„µi„z6ÈÇÅô�°©§B\u003dˆf\u0007\u00024J\u000f¾Zà“2\u0012O­º[\rª¢Y\u00055F\u000fÕP\u003dýD?þÖ\u000b}’�)Ý½ÖˆÆe(G™-hûXÝý\nSù\u001eŒ‡ÿ¯Ç€~”k\u0007VrCƒ¾¢lï\"5¡YÊS#¤Êö\u001e¥¾#ôR4A�ÿëß{ÞˆI\u0011Uè\tà‹Åô\u0004úà\u001c´ÂUš®¢;¾0Võ©ˆnHMªÉ–na ¾»�\u0006\u000fÒ\u001bhóKèô\b�—c�JÀÖ»è�/Þ²�¾o\u0010;UÓE\u0017wìÒÒSkx ÒZê—V?œoTÓ¥¢a\u0003\t5í+Ú«î«çF€¯e{¡;\u0027|qHÈS5‘·èËéÌúàWGêW€ìwÔãß{®ÑuzMO1‰…j`\u001d,Ì�Õ\u000bh\u001a#ËN\u001bê�\u0006³ƒ‹×ÿÞ3x|A\u001bõÐ(8¯B™áPŸÜD\u000f\u000eÒ\u000fÍ‹w‰èb´îífõ¼t\u0015´ö¥ñ�¬\\\rýRÞ\bõuŸzÔ;L�\u001e©÷_�\u0019˜\u0018›ÔkLÅGÓ\u0027-\u0012ûP«Ÿ\t—3Ù\u001eÊgHçÌf4·\u0015T~¸×èå\u001féœ\u0011+�\u0027Ó^\n^x\u0017ÄdÞ«7ëÕÀ!êmÚ¼‘¾Û°¤¹–Õ÷X\u0005M$1*ºŽq\\\u0016\u0006\u0005\u0001èý�\rtú�Ìh³Q¼\u003d})zÖ\t]þ\u0004êt€NçX»2\u0004ÛØC×A\u000fY¤RpÀ{\bßF5¾\u0005Òø\u0002¬HOéR\u000b�Ñ¸¯¨ž\u0006Íüo‡À¯“4¤¦‚êÙJ˜æçt£\u0002–}Ú\bÁ°L£†nÑ/Qz‰^{×Ò\u0014Ä4gn¦köÒ3\fj’~ÚÁäÕšúÃyY\u0016o-fs#;YLÏÄN\u0016/\u000b\u001eU#k–°\u0010öÈª¨A:\u0027:\u0026„µéé\u0007ó‡×\u001cc*ÿlFqm“\u001adÕ/ë;\u0026Â]áæI\r¯\u0011ýEW\u0003Pöñ\u000fç\u003d\u0000\u0015cô¢I\u0006Î\u0012¡Þ\u001dL©‡\u0015ôº]�{Ò\u0007ÙôÑO\u0019Ã\u0011ï\u0005®x½4¶\u001e\u000b\t’íâžŸÐ9Ðr_\u0016ÆlÉ\u0026:›¢ÉÃ�\"ÆÙ\u0001alLK8¾u‡Ñ%þ}°AÐ\u0010� Ò%\u0018Œ{\u0027h\u0002¬\u001d¢xVhUA·Í¤E\u0002,¨‹\u0017n\u000b é*$à.€ÒP‚†Œ¡\u001f—i\u0006¼XÈÓcÇéJI¶\u0017÷\\^ìj�\u0011Ç�*~®^Â4� »©\u001fÂ\u003cºg«Ì\u003dœíûÐ�¯\u003dôƒQáSô\u000bÛ6£3\u001e¬\u000fÁ˜\\)Í‰¤Ç£@�;Õ ÄBO¼�f*Y\u0017�Ðùb¡x™\u001a‡”Zk}EòwSƒz³¯yŸ\u001a±\u0015Qe´Áƒ1žÞS\"Òè­:¸W½¤¾µ\u0010ÿá½]€5¯• ´Z\u001a\u003c\u0005B£9¡\u0004MlSÃ\u001bÔ`%Dñ1¤åRÐ\u0010¸¢öðJ5(‹,¬î¢kra;ººNýÅ4¦ž\u001a£\u0018R÷Ž«7`ÃU¾$}+s:\\E\u000fez•‚\nAý°\u0027£f–Ðó*õ”§øN�ƒ8c®}ê‘m±Œ\u0027)\u001c˜\u001dÜK7K¡Õ\u001eA@\u0004‰\tŒóÓ\u0003!Eº„¾³üÐq\u003d¾¢´\u001aÍˆ2?Bß/ ïedÇÔ˜˜¡Ê¥ ÉO4”íM/…•\u0016Z†�ÿÖ\u0012ä´? \u00060õ8\u0000Ü5\u001a\u0017õ\u001bXaTËx\t›ªË«dl§ÔÝMX�\u001f÷\tM\u003d�í¿‰Y†\u0004«»e¿õn\u003cÙA¯ºW\u0018\n¿*?*d\u003cqj©-¨UBIú¥\f,xSè+6\u0014|Ð©¦ëÖÐ{�ºWéó}å‡žxT\u0027´�„õ\u001b\u001d\u0018è„í:\rÆz$6€û§«ÁrE†\u003d‡Õ€7Û+�\u001aœ«Ç³?GfO˜}�\u000b˜›\fp\u0015ÝtoÏÑß[\u0005N1FôGÓê­(]8\nDÐ«\u001e\u0019µp5;‰æk’¾pw@�Òx‡�\u0007gÁ{cæó\u0010ØÿýRàvßVÐXMÆWàÎ×Ùé0Ýßd4\"ô¤°[EmcÜÈÍÃ]j\u0000m—Bï™Uÿ\u000e,:Þ´+vœ­axk¬�ÍV\u001fõÔÑwÕ4U\u000e\u0026ž„\u003e…{ –§z7½h\u003e\u0001�ðz_PZ\u0007¢yh\u0014Ï\u0003H�\u000bZé\u0027‘Kómï\u0006‘\u00135–ç´x¼»¢2Ý]¶\u0003©yñ¸›zvÐ�\u001d\u001a:hèìõ°\u0015¹rl©º‡/CÀòB\\Ou+�ä„º{„`\u001fn}¥ÆÅ/ð\u0006pÛŠ\u0015j CÚg«;Ã\u0026ñ)c85 jO€xeè·ÞãlSd%«!°WVB8F[A\u0003õÀhþŠ-4*#oJÑ\rÈ\u0004\r¨\u0007F·½²GSaææ«4¦¦\u0012àå\u0002èöžáÀ%5\u0004‰º\u0001Úü¨ž-]\u0007\u000böÌC“jz‡z_\rÐò\u0014\u001d_ûj·\f\u0002\n \fm;\u0018�\u000böÐ\u0017®YDw…ÏÔx”žw©7k\u0012jHÝ\u0017\u0026•+Å¾0¦¹/ï«\u001az¿\u0015:ú†±îïà¤ÌPŸº¿\u001bèT/\u000bú8/dôÁ´\fÒ·€àg‡ÖxèzD\u003d\u0011:Ê4Ô[\u0017�á;®¨wtÎOßâsŽ£+jÝàÅ_EI\u0018XhV¾š]§]\u003cûÓ�Á[ \u003eþŽÔ\u001cÑ¢3(~WM�åå\u0007€î\u000b¢g+C`Mthä?$\u003deÔ03Äk8Åé\u000fý»„íÖ\u0013péPÒÆ€Gè\u001c?k„Ù£½\u001cY\u003e;,Ñ\r·¨S\u003d€·qWš]LWv¢Ý’Šö\u001dt…\u0026·©±\u001aˆØ#_šfÔÈÞ\u0005\u0019è¶[¢¯¾\u0016¯\\Œ]X\r\u001e—?÷\u001e¢Ó¥ôÒv\u0026¼4þõ25£^o¢ïJÕÐ‰mûA‘Fº¸`Ã¢\u0016ºº„®Çb`Š\u001e\u0002`8yB\u0026Q¬Þn¥\u000bu[öÙ¶¸O½ÌÙUè³;r_wv:;©\u001e”®“\u0005\rÐ� Ï×mdøžaœëÒhuìP\f¬§©\t\u000fó»n°Û#Ñ�ÁõÐŽO›`\".Ñ\u0015\u0010\bÚî—2� U˜¦v�ÇLD\u00162Ü°‡.Ë€*\u0000ŽÞðbÞ«ˆƒXSP6“ÐA“ôƒ\r\u0011kéª[\rÿÖ»\u003dº\nÞÎ\u0019¸\u0016\u0003k�\u0018Þ\u001c\u0012nZ‘\u001d´u5”ä›uðSî•ˆO\u0006ì5®¥[¨\\³MFï©5Kù^0õ\u0005³œZ³®h\b«·ÅÆ…XžTw#v\\§–\u0026¶Òe `n1ö[¯D]@Êžl¯EckM£�Ù«3ºø�\u0011“éf_\\À¯§NM­E+/ ßÁ­ôh�‹}ä\u001f\u0001QÆ\u000eª�¯²½\u001bé¾ºwŠ\u0026KZÙJ�°ÎœÀ\u0017F—\u0015Ñd7ÝÛj†çUÃ!Œ\u0005ˆ\u0000-\u0018½¯Æ\u0001\fû�ci\u0006mXÅ²¶��Ð\u0011z\r­;°Ñ#Âê1�\u0026;¨EgˆÎSß�œÍa/Œ1S\nÎA¸\u001cêüÌ6›õCÙIñÙ*ÔÌ~\u001e;`Ò½\u000fý\u0010\u0013V[I!òÒýø~\u0000\u0003\u0019Xî+\u0002�›àÑ·sÏ~/\u0014ÝK\u0016Ïï!\u000e“Bg×j ë§p\bO�©‡ÕtZ\u0016,ÈÂ9FW\u003d\r4#\u00016\u001a9d4AšÞ‡|\u0001z\u0003èêê]ôÎ\u0000,¯‰„\u0004Õ4”â$\rKŒ)\u0004øý]¹b¾ê?Iç\u000eÒí\u0016\u00062ýj’5ø»E6¯‰†±\"ø\u001b®ö€í�z#pN€k¨¯[V4¥FŒôWF1æ\u0026ºhÐ7x]ž@\u000bl!\u00066¤Òô\u0016ø•ñîèo½2œªæ\rjèpGé‘UÙ\u003e\u00002\u000bªú\r]_¾\u0011ýaŒïeq$p\u0006\u0003\u0000¶\u001e(_”§„ÃôœÞ\u000bÆ]N—²“;è‡Å†E%.\u0018PoÔ \u001aXI7\u003c.\u0019•¬4\r\u0007Œh\u0013Ãj\u000f‰e¨b\u001aÜ¡»ÙAõR“yd?]ÙB}\u0001#~ßdè\u001cTq\u0011]ÀÕdvpm¶·Š~:\"æ®\u0005¦ªgð·Þ\u00125¼S\u003d\u0011\u0018\u0003êOæ\u0018Ì[\u001b\u003dÀ\u0001\u0010Qæ\u001c\u00050ªÕö\u0010\u003c\u0015[vÑL\u0003t¹{;ÇÎž‰[ãõ\u001agÍS]r\u0004Èâö†Åjl\u0015\u0014é¨{§„6€in\u0019«#³º«Þ\u0026àRü’�\tì¦‡§â\u0000Ó#Àþ`ª»jh«ºO¿Va!^\u0011ŒÆÀ¦V5¹ƒ\u0019ìÙÉå9Ëí\rÂ€õ«WÔÛ\u0001ã:XA�}\u0001e\u0016ÂXø\nºyˆ®U5G×55¬\u0011®9Q\u0001¢•�ý÷w–—¨ÇÞ�f\u0005‡°°7Äï_\u0006z?U\u000f¡Ünˆvðç\u0018\u000e®ù(´ÈŒXxouÙ)õ°†¾3˜°\u0002Î°\u0012ð^•ƒ\u0004\u0010êÑŠ\u0015ëè—ZÛK”gÛéªaf1´0uÉ¥°ÐcÛmˆ¸¬Ö¢—kv/\u003dàáU9í‹¯h*\u003eLO\u001c\u0006†)¹+º\u0019ýÅ�µ·Ÿð\u0015µÑ\u000fk”Y5x‘š\u0015�¿oî\u0011Y¯XÄ\u0006f²dGë�}†\u00119žZ$\f”åxµÄiàªÞ\u0000#]†V8kn¼gz}bh6V]ÙQÒh\"Îµôd\t�®QÆi\u0017n \u000bêA4§È½¡“¥[2;é\u0027†q\u000bè»ª\u000fý›Ô”š\u0012sîe­1L\u0017�\u0026¾ÂBÙ§FÕx\u0015#¨A\u0000ó+5v8Ý/žŸ·â0Äý\u001e‰QYÞ\nà6°\u003e¦F77˜\bw\u0005õg{×ŠK)ãP÷ÀË§„¼J{´²ºMjZÆî­ÉÎ,\u0011·Ó[Oßïdp\u003dÜJ÷¡8o\u001a+û\u0006Þëkæÿá-Û+\u000fƒ\u001bÆè\u0001:HÐ¯P˜Ïq\u0001ã~¨\u0006�\u001az½£ŸÕ]\u0026û[\rÑ’ê\t¬ãÏ§Ô€zÎ.½`-\u000eÞ\u001eVo\u00019§èâª­;¡ˆ^Ò�\u001d@AE\u001bã‹ �aÆéG7½ê0ZÇûUÇîäfp²’ˆ\u0018c¯-\u0027|Éª´¸sµUnúQ+‰·d\u003cZpQ\u0013�Y\u000eçœz\blxk™špww‹séõ¨\tºâ“Ào-xM‚¡—?œ\u0007e\f\f^-Á\u0016\u0000Ñ�æZ£ÕàÎ?UOÛšÕÄ~Œø[õ\nóof\u003d%ªaÙöZõp½Ðžaü[5.™\u001a6ZëŽA†Å\u0007õŸÌN\u001e5½\u0007}Eë€À\u0016¯\u0012\u001d\u001a¢{\u0000žO¼_ÁÄ/b�rP¼f\u001dÌ\u003e\u0007Ù\u0018´´�Z\u0019‚ö\u001aìVce\u0012÷\u0002\t‡}\u003eÈ\u0006÷ËöÅ¨7Û—l¢‰zzñU#VáûM\u0015ôz\u003d]±`3Îæe–*C\u000bë\r¿\u003cÐ�\u0007�Ðä@À‚þn\f{:x¢ÝW´uc¶—~\u0000çFé;VQ\u0013\u000e\u0006\u0011\tP�¢ô+«µá¥KéYCÜ£Øð\u001a¡Õ³­\fBŒûJ70¾¹E×Ò4��†þ{ÛåK‚Íž»¬\u000e¸ãÕûèû\u0014œŽÉMF\u0002\u003cŽ7y­K\u0016÷ˆYÄ\u0007\u0007–shCO¹¢†ÎØ:\u0026\bÎì¹±§¨a¬þO‘ìÀÆÜX½U\u001bÔ³¦P1´K¥šò%�Qo¨\u0027%\u001c˜\u0014j\u0007À5\u0003\u0010×a˜ë!#¤\u0017Ù‡ï©§\u001b�Çh$ Æ7l‚Oó8OËÕìp�û\u0007\u0016Èàhp[5$c\u0014lòDÈ\f�6º-+Ù/‹\u0015À\u000búF\r\u001c5xÚS•\u0001j8­LèŽ×áL\u0019££Gô˜nª‰°(|ï²\u0026¡¤Ïç‹·±\u0015î3Ô\u001f ËÙ�µôª5§fm¯Tš\u003cÊ(°O™|Ø6ºØ¨Þ,\u0014ý¶ÉXð«r§\u001dL‘\u0007Ãâ—Ô6ƒ¡Ç:!Qƒô`i”ÑÒ­ª\u001djŠs‡¯�¢¬¶l\u003dÌãÿÑøÌÕk�oK#t\u0001l\u000b¢¾\u0012’Ô3âú†ž(#kû²3{³½ÒDå\u003e5ºX\u003d)k¥ïW-5úÊÓV“�^¢Æ·-]Í\u0002ûÚµO¼‚êt\u0002\u001dz!²\u001c�Ùm\u0006Q\u0003n\u003d;D/#18õ\u003c ŸKV;+\fkú¬]½\u0003\nÍ\u000eJþ!\u0000\u0000s\u0003\f:\u0014”\u0018„·q©1­#à½›àÚ~\u0013IðT\u001f\u003e\n…ú¨R\rÓ¥cB;fD\tÑU¸ê-fÊ´A\n\u0012ë5vÂk(Á\t\u001bºP\f\u0007í!àß•Úz³\u0002×¡3®ÑðÖ–”ÍÌ\u0015ô¬l\u0015LñÝŽE0Ý\u0003ôÍ\u0001±NžpN°Ðà\u0004 Áˆš(? 93ëÃùeð3FV«§\t£ž\u003c‹ÙƒÜ±‘3`#«¨§Rš¯£7‡…YL˜­\u0012¶0Ïá6Î¾|®a/·©zÏÊ\u0005\u001cì3·ëÙí-W#0\nc\u001c\".10´ÚX…ë%Æý604½S\u003du\u0027 Oµ\u0004–¼¥îoó\u0015í\u0006\u001f|\u000ba\u000bœ41çª„\u0019Õ¤\u001aª[N7;¢\u0006_UÂ�›’–!º?y%Î\u000fr¤éFq\u0007«ÌÛxf€®l³IÈÁ}cz„‘\u003c–Žƒ¨×Ë\f£|o‚ÁÕ4Õìóá¹íêYvzKk\u0027]ã\u0006§}auÿ`)¯™ ƒª�ê~v`\t|Ã\u0019\u0010â2Ç\\\u0006³}ÑŠ6wJÇ¦Ó¸á�áªÛÙi_\u001cê{ªîèÂmÚJÝ”\u0010‹DF\u003dÕëé•ÛŒ“\u0015+ô„�¿\u0026-äR#ëÖkg…nî…mì_‡\u001fWèGØú7ËM„C(\u001d€ÿ7\u0001Ïg\u0002ty¼Z\u0002P\u0010ˆþ\b½d«\u003c\u0012ÛA3P´3’\u0027ðzv©W\u001b˜¼\u0012K2«³ŒzÒ¢P�%…\u000et¤¡Q�ÔprPÀqmv@‰\u0026ól¢ñnô;}˜î£«z3é7et\u00174�/mß\u0003@ÑEƒ;Í\fûÃÔÓ\nÕws+H2�ÿ®Òà\t½Ô•fß\u003dõÔ®ˆë þ8]Õ‘Koˆ^î \u000bUêÕf¡[1“‘ï\u0018Y»^Ø�^) ²Áð¢\u003dj@à_ÀlÝ\u0017RªGûéM�\u0011¨\u0017\u0006¡×\u0012»\u0016Û�Ä^4²þÐVÍÚ€5½+\\bÔ\u001a0ØóÍ\u0019õ ž\u0006ëlžªÔ\u0000\u0012Ôœpü1º¦\u001eð ooÁO\u0010\u001cºç~©Á›\u0015\u0026!ëa§ìÆÊbóÇûlïbH»\u001aÜFßl—ñª�S~ê\u0005\n€¶]aè]\u0019Ì¤\fýî4´,\u0026­tA8ø§¯\u0016­–\u003c›·f[Í\u001a(°ï�É�AÁ“F¹Ó@ˆ¹}\u0004àí—å�‹sôãf%¡Õà©\u001a5Ý™ˆÒ/ê.ÔÐ�\u00187¬nÿÒU\u001d‘�t×D\u0018Õ£P–Ùfz)Ï½ˆ®ë¯ý�©\u000bë\u0000W\u0006\u0016ajñ…j@*0\u003c©ìä)\u0005\u001f£S\u003d\u0005¾»nìé5°Q\u0018¢r•.‡ö¢;!l\u0005ƒÂ»ê1€×\u003d;¶X\u000bü9iÏÛr\u001d¤ï}ic\u001f–û\u0002\u000bÕx½mCOÀ\u0019z\u0019¨`�yÔ6Y\u0015j$Û»@\u003dß¥f¶ùOÑEú�½éñõ\rbÙ dNÓ\u0010ìÕOl¸Æ\u0019y\u001eÙR¼@q\fz½zÁÑ�qÇi—\\··vÅ\u0001xgS’�…W4Ó%3­…}�çt:To\u003c.\u0018ŠVú¥e\u0017;ŸýênJ\u003dYfTØ£#ò,\u0003é×tî\u0018Ø¾G\u0027ú\u0018±Ž„éò¡¯JöÓÕ@�Ü\u0006\u0018wÍ6ìáÝ Ù\u0015º\u0003Z¾3l»œ^·Ûl(ö$\u001cýp~¹83Þ¨øàµjLMÿÖ»k\u0017–è\u003dÝYYª^l\u0014µî]n?\u001cÚÃjkPÜ\u0016ð½èÀ P×hFpô-)��uš`\u000fááÎf5P,�ÕS\u001f\fØ5qB½UÍGeÂòld\u0017];¶A\rÂíº°B\rãƒDxª;\u003dœðªMÒ\u0000Ýe�\u0019]\u001cÜD¯—¯…R\u0019†E¼\u0004u|¯¢\u003c¹ªÔIØ^ÈNÖûŠÖCÏÀK\u001e„Ù\u001do‡£ FkÔ½ÊƒXÐ\u001f—FŽT´(8\u0027œÕêo_ô¡¿ýC¿\u001a?\u0002£ÔC½�¦\u000e\u0007h/®žïÍN¯µ£˜Õ[Ôd\u0003\bôh)}‹–n¨±Cô\u0006®-×Q\u003dS\u001c~Ç€\u0026èFsÌ€#k£±{UÌ»Ó4R@­çÐ%W…\b\u0026EbmP÷ª�S\u0011:¢ž\b‘¡°®4bñW\u000b‚ôVe¹¸á‰zµ\u0016C\u0018\u0000I\u0007Õ;õÞjƒ\u003c¿þpžÎª×êý1@å_v\u0019\u0000cR,•«èýN!j\u0015M”�\u0000¯WHÔEªÖ\u003cê1¨ciX½\u003ex„z\u0001Ý.a\twrMHÏ\u0010,Å30Õ â\u0018üƒªz`Ÿ{•\\ÿ5œ³NÞ°àæ€_X3fdô\nDâ-°é¯»iì”\tð„ÕÛ¯¥R$¼\u0002”¸‰›nÁa\u001a0~§WÝ?\\Ùr¼“\u001e\u001d]\u0001Mð°Ñ¿q\u003dÝêVSÅë`Ñ!˜Ý¶ÀÑyº´S½ðrH\u001aƒ\u001e«£{Q¦öTšÞ\u0005Õø\u0026z¼¡;TL6ò\u001d¥\u000btç÷žÛQ™øbø¨÷èŒºk´}¿ñäª÷ïu¡›++ö¨Ç\u000bƒt¹;ŠQü¼ÇàjáÙÚ5Ð)wÕ3�]¤ëpîúv.4ªc`ónY:1“Ù�íêùúElõLŠ`ïz;\\!îU¥Q#wÕhØ¸TaF\ný°ïi\u0010ç¾IžX\u0027\u0018–²å¿½ª$\u000ez\u003d8\u0006ˆ\f•\u003d��9E—ùÂkpñëÃA�J\u003e¯^ÒTi\u003d�m ž}í Ý\u000fêy‰¤�Bõ²hAõ*Ûç®©YØ$\u000e(ŒÀ\u003dõ\n:Y\u0026`Ôiõ^ºX\u0001?òŽvú\"�O‰ÅTÒÝèn\u000f]­çï\u001f€\u0005Ÿƒl¯\u0016Óëj5Ñ\n®\u001dÄb\fš\u0012]“Çc\\Hã­hâªz\\BÓð¹/b\u0015Ï®¨V÷�7FÈ„ÕÕSú\u0006\f˜2iGæ6ö„.4\u0026éE�ÃÊo\u0000B‹dÁ¸æíë\u000fçOÒSÌñ–E\u000fu,—îîlîHàÖvc[jR:\",XJb{ž\u0012a8#iÏ\u001a\u001b;…U¤Sº›9´Ÿ~†\u0019IªW\u000b!ßçÕ»lïše\u0010°f“©¡ñLÅú5jjÉjº.È¥v¥šb®\u0018ª5 V\u003d\u0002¾~Ý©MÌ»r\bÃw\u0012­€“û\u0006.Û¥cÆâ³¶]¨ž\u0005k9%ð†^¨ñV\bû\u003d¨Õ\u0003|£aŒeôóî*5‘\bƒÔO›4³C÷@!Ê/“�\fK*\u000eÌøÎ\u0017NÑµNzµ†I\b-5£^¯È\u000e\u001c¦ž¯\u0005FHþZà\u000f$s‚«\u000bƒ’ö¶k0\u003d•;é\f×’�€\u0006\u001f\u003c•€÷n”‹™\"ä›\u0003\u0002��0„ìvÌp�±ÝÂCÙ�6ÓÅ$}·o\b:}¦Q˜1\u0010•àSˆUö\u000bŸ/H\u0017Ö®;¤qÛítJ�ì€^\u001b\u0003©ÞÐÀÞƒœÂz£\u0006–CÅ?êP/\u001b š\f\u00040?‹X\u0027\n\u0015²\u0003;\u000fËBGèá\u0011¶ �ºÔ`5xõ‡\u0026ÑVÐn\u003cäQºê¢3)õ^\u003dèŽu\u0019#ÝË1–`Û1®Cy|hW†u˜Éb.ÛOSÕÀI÷èVÊLvT�\nKè2ß\u0001(ð+ûÔøQºÓ}¸¶é«Î„\u001a\u0012\u0012×ÊÚÿÖ\u000b\u00136\u0026\u0015h^ºLÏ–©\u0007ÙÁÚtl\r]öB\u0004Gè|ŠFá„\u0017\u0019`4±\u001f3~½ÔãKf\u0027[i`\u001dË\u0007§\u003e|¾\u0005Y\u0011Gkçf “±T%8ìY¼Üñ\u000bEae\u0007öÓ•�‰k\u0005é´XËÄ\u0016½tÇDbÅO´SúUeKÔŒg\u0003\u0004`ªŒÎÇ\u000edût\u0000�\u001eÛ1ò%pÑ‹²ƒ@8ƒÇ\u000e2Ú\u0014e\u000bo\u0006ž¦°l-ØÎ\u000e†×@É\u003dpÂ/áîì`\u000bG¥z\u003dLäo±Â\u0002©‚\u001e°¾è[ë\u0014ôß]š¦›™åB\né\u0000@U\rn‘A\u001c2‘ûŠ¶zp×‹EF;]¦ë5«èŽg-]ZeÌÑEºp`…¡ÎíJ\u0000Äìe€˜UÛ•\u003e\u001eèLõÐ­Þ‚ÓZ*»u\u001d’¬;¦?\u000e\\|]† ³ã¢–\u00079JWÔ`�¦¢9¡òÔ¬¦o²}Py3êÝ‡~7÷\u003d\u0004ßýÙ.»È*´’ÎÁ\u000f§¡x¶—Î…²\u0003›Œçne§k!\u0027ò‡ÇN\u0014JÀßðÑÑ…êEûQÉgA1¾Ñ*š\u001eœJ«QðçÅjØ··Ë-£ÛGëáÅ�˜v¸*c\u0004¾ám^Sºw˜¾ëX\u0027\u0012Jg-úEÂ\u0015µ‘ãKåCk,F?ÿÖ»’etäˆ\u001f\nú\u0016ÝmVo­ý[ «Þ®6!�J‹ý�!Ó�ü^Î\u0019*÷NŽâ\tS©éãZJÞ¨\t/×¦¼€�¡KÅ°¤ï‚2•€Ä9—\u0003áMÂ”\u003dóÅaãß€ôWÐO»ááKeQ®Â|«^4\u0003™ý|\u003c\u0003ð}\u00062)¡Ý\u001af\u0011Àç!ê\r$|E²ZÕuÐpàØÖÊ\u001aŒú\u003e�\blÎøf#cSkÕûì$Dw”¹ë\u0015\u001a}¦Æ~ë\u0015‡+XÂ´í\u0017Ðã­åäâRº³W½tÇÙ\u0006ßpÕˆ³I7ê#\\²õV�/E\u000b\u000f:iê¸zAÏýô\u003ebÂ¼a\u0006U\u0026;D\u0013«\r*\u000eI©VÈ½–~fßÿ®�-ï\u0019üÞ ›aQîÞ�ßgN‚\u0013Õ³K½�\u0002¾HOºKé\u0005ÆðUWK“AZË¹£§‰\u0026:ïó\th‚¦ºG3\u001báÉ\u0001­Þ´«îÂôÔ„Å%Uã7\u0006p’~©¡Ûû™e_\u001c2öç’Qãc\u0005\u0015\u0011\u0001áRXÑ\u001f¨g\t\u0016jÐ\u0017X\\G\u0003²ŽÖ\u0016!a•ÏW\u0012_½v\rtë·{×\u0019®ì‘š\u0014+³ZÆ²k9�ßcŠKü[67Ò³#ôÃ‰\u0005K ÕÓÆùƒá‰¯Ï‰/+Ý~hë\u0027\u001c¤\u0000»\\…4\u00079\u0013W#“öÔ¤’Ý\u0026º\u0015RO×ÑOQ5–…�†p½n]o4á·ÄÞ�›ž\u0016û\u0001^nBŒ¿õÒ¥m\u0002\u001e¤×Õ[áæÊ\u001aÖn\u0004ò~¼\u0017\u000eÊ]_Ñ\u001eƒHƒjô°\bN°Ñ—\fnõ%›0¨ŸÕ8Ç„ï\u0017\u0027¤BÂ\u0003}9ÅÜÿ¢\fz\u0011\u003eÞ#5´\u003d­Õjgù\u001eõŠË/Ôc©T†\u0010�ÑÝm¾€\u001bî¹^MýmÕnê)�µ…×5¸_qM-Ûœwôí\u000eé]¯æ8¤fä¨Eg\u000eÁ|Þ®„\u0006º|Xˆ^i ÉãÃ\u001cvVÓ\\½;J}Mtne±\t*UeÙ¹¶Cë\u0012 \u000e,Û\u0007\u0007ƒ« g8“I··Ð/ 5Ýû­×»„®®‚Y\u0018Í\u000eª‡1\u000e_yk“Û c/è;Y×\u001ašÚ¹”Þ×o\\RÎøæ\f\rm?áKÒ{:Ûqò¨ÉRJxÊ‚»tÞËÒûL$\u0002¬\n\u000bÝ¡žV\u0011€N±¤×*CU�›è:`ç\u000fô�[½Yx\u00023f\"¾Ük6?„hh%@¡ÎUˆ�à²¢a\u0013Ú\u000bÐènX½ÑRõx‹‘ÿŸtVMXõÀúfŸ�\u0026\"ÙÞNº·H½†¢\\CO8´·b“\t{Vªñ´Ï·r\u0011”¹tXAOCt£j§\tþÕªgÙÁìLófÛ‰\fÚÒMÝ¯ÛV\u0002[ÂI8õ¾\u0002\\;v�ÎîÆD\u0027ãÐ@ÓaS\u003e\u0006�à\u0003#Þ\u003d\u000ezý*Ã^,kË¡£Á½ê!Ö\t¾ÛÃ­›bp¡`g\u0007\u0016Á‘1\u0001æõÇ\u0018óÜÁ\u0017“œ1P�¨�\u0013Gw¹ÓÉmML—oé´)L\u0002*š²ðü:£]¯¨\u0011õ0;PMo�í\u0014’PÏq(\u000faÿê¥+Ô»¶m¸\u000e\u0015z\rª™�ƒR5“ÄäŽ•²þ»™í](Ëé¢\u0027†þ¡\u001dô`ñAºJ—VÓµ* ÑƒêÉö\u0016™WÉ‡ó0úRõlªß\u0014×D©W4uØ¨ŠÉî\u001aõ¼“~\n%uLä6g.Ç©\u000fÊ¯\u000f\u0026`k\u0019�éÄ‚¿…i\u0002J¼Ý\u0006Æ.\u0007‹Ý5¹\u0019\u000f8åúò:u¿\u0001+\u003d‰ÅkÅtM©î\nº-Ÿü‹YªqÑ3 ¬\u0005j˜^KR¢B\u003d\u0014®Sw%û5vÀ.w×éÀ)˜øg;èt\u0005F¦£´\u001eï\n\u001a¶êè‡z_ U\u0003Wg\u0018€ä9\u0007f/ŠöÆ§óa`µ§¥ôs½QÃ78¢\u0003”þ\u0016ˆë\u0005\u001bœÅÐ³Ï¶²úx\u000e¥ú\u0010ë\u0005\u0019Ã§{ô¢S½QãÛ³¶7¶|3\f9ÜÖFºq”F\\‹èR³\u001a\u000eÓ›®\u0013\u0002õ\u003c€“SËeÌPÓƒj‚Ùàù\n£êû\u0001°¯¹\u0003‡$\u0000ø£\u0019P}£/\rþ{\u0000ˆ)Q\u003e/ýzB�x¹êé6\u0007åûégH ÞÊ2£^ì8e\u003c\u00034ø\u001a\nøº\u0027©³±t¡3Lp—qõ„š8Á\u001b[ni?v+\rHN©æCÿ\u00168»O�\u001a}Že»­¦\u000e\u0016Ó�\u001ahk\u0003§¶£±Cj´Ý_¬ž+.‹xÇãèç,žq­\u000f¨—`¢sÄZõÂ\u0001\u001béXêE\nHâ\"pÎO@“��\u0001î\u001fÙoœœ*3d¸‘—e\u0027Fð\bÖê©\u001dÝ€Sp×\u0018·\u001aÆ6·à§~Ó-æ›eyÀ—Ü\njŽ®4¥X•»|¾\u0015»L™\u0004\r\u001c\u0013}ê\rûÂí¤\u0013�¯ý\u00154\u0005�Ü»_îÙG—‹5ªV£_Ó»ý\u0000§oä]{Vs\u0010¼}AM\u001bî¿¿m«Ÿ~…å¾B\u000f\u0017ªÇ\u0027\u00154\u001d\\±‘Mv‰¡e8õ�\r\u0015+M„­»\u0005‚ûË×ê\u003eôåLv’ž�\u001aƒøý–ËD6±\f�a\u001doÒsõ¶Í‹\u001eŸÑwÀ6!#5ø–\u0003Ã×âm\u0001]§ ‹q\u0002ŸêŽ\u001eÖ©}3À·-\u0006Óôj\r‚³“˜ñ–\u0004Me¹Â\u0016òÇ.Ë^¬Á9¸Å\u000fwÙÛ\u000e€»ïÚ›ûÖwœà}\"R‹j\u001d…\u0015Ú!\u0003‘Æ\u0017hcw\u000b–Éã+Z@gÒ‹Lô�A€S\u000bU³\u0018®\\Yñ\"Ïâæ\fÈcŠd8X\u001a§\u001bÛ8¾*ËR•\u0012\u00260•Ø’\u0002\u0018\u0010”S]\u001eè¢k²×Ä\u0010—9]Ö¾zßaõÒ\u0017oY\u00075oÌ\u000b¦5á\u0014\u0000?[f\u000f¦š¾ƒl^‘œÍ´‡Î\u001e*Wïø¯_è\u0012½´c\u001cûC9Û¬ý›m.yúX-ÈóSRÀCHvg`N«\u000f©\u0027‹\u0002%õàë_\u003dv‰¾Ec0\u0007ƒÂÛ•VT*ë\u003cÕ\u0007E´¸ðûÖ~ºÈi\u0003“Í\tüÖ»…†›ü¾¸Å\u0018\u003eÜ\u001a†ré—à`\rñ0\u000f\u0002\u0026Mù’)Àëû`¡)È\u0003\u0027¹ë\u000eKlÑŠósI.x¢WMô�/\u001c_›^I\u0013Å4éYC¯ýŒLîÉ\u001e\u0010®\u0007sV(ôU«_Ý\u0017˜\u0003á\u001b1^;F8žZKƒÖ‡þ…›\u0017A\u0027\\7¾¨µaá\u000eš*S“ê½W�\u001a\u0001Û¬Æi\"J3VF\u003d²3\u0003\u001e¡(\fÖó\u0018tÁmHç0çÅÞšâ\t×zLÿ9ëÚ�5Ç\"‡èM\u003d�Y,‹¶\u001bÈ´o¥AGSÛÊéŒ\u0004ÌL5ÒÆÃtçƒIQÒÈVÛ¿\tJ½œQ\u0027§Çj\u000f¨©5�Ô÷XŒç:Fÿ†x—G\u001b˜ï\u0017³ßÈ\u0013(‡p³Ö$æØInÌÎøÕËEû¢‚H\u0003\u001e_\u001aÆïÜb£±ï\u001c¥\u000b[é¬)cô„]�CfÉ§CjÄçC/Ùi�\u0002\ffÏõ†v•~ëU\u0013ô�ACÃôŽn³EÅ˜FZéŽ\u001a�\u0018[?�N©ûÐóýQS\u0012U.‰ˆàþö½\u0018ó-Æ‚ƒêñ*5\\³\tL{/O jé¡Û �×\u001d\u0027¥Š£2\bGö¶¨Ì“›\u0013¬¢gä¦ðñî•\u0018ŸD©\u0002¢H ”‰jŽvNw²L\\„!™€©¼GC\\\u0001GwŽ\u0018s9uÊ|øY\rš�s\u0006 Z%€Ë¯ ¿ŒLûÂÆ¥ò\u0000ïMb,¯\u0017‘Øê`¨*\u000b´Û\u0003\u0016\u001e“è„Å\tù\u003eõt�z²CÔQEíâýf—0\rèŒ�wÙê\u001c\u0017@IH\u0019±Å`W\bXlÇºÔƒÀF\u0013o¬Ýµ¡^\r\u0002\u0019˜,ü^Å›Ÿé]L\u003d^\u0002Î¸´[M\u001f8vˆ¿\u001ai?¼\rPä¶×Äâ,\u001aØÀÂtvYŽÎÐ!Ót–Æ ´Ï—š(I\u0015\r�\u0002�\u0026cÛ\u00024Ys Ó”\r\u0005\u0017Ò£¯eü•\r §D\u001bCí¦\u003c_¶õ…¢¾\"(\nq�ªÔpÛŠÕt\u0027Ý\u003eµi-`é�\\[(Äõ„ÕûtvÆW\u0004\r\u0026 ÝÓ-\u0001ô�¯hßv!\u0019°óKú~ïR5q’MäÍfšÙ\u0015\u003c¨\u001eÆS4C·:²ÓG\u0017\u0026ws\bú\u0006×¼\u001eZ\u0004òß\u0000Ã\u001fî²\u000eÉš~è—aYKó\bí‘zw�×Ínõk[ÿ\u000e4‹|¢éó\u001fÎw\u001fo£÷þ¯¾¦áì@vrOŒw#\u000fB¾gè\u0011$\u000fÎ;}ãµŽ/¦ÓÍ€|÷\u0001„Ï\u0001\u0012™\u0002½�šÎö*Þêm\u0007’4{Ij\u000fu\u0003š$ÊkÍì†!PNF—7]\u0019þ�„W%¤£‚nbm®úÒ\rÄùæìÀ×ôŠÎ«)øò¦p\u0007Î(ý\u0018ì‚Tº�›mR?ôÌ˜øšÝ‡×e{\u000f¢¯…\u001c\u00000Š\u0006\u001a{#GÉÖÀ,?Ïöe\u0007èû%ô0;ÓD\u003dÙé\u0006Þ¶l\u0017�Ô,\u0011Vé6\fÂ•*wÌ\u003eú`ª¦–¾gÇ¬‹nÂß\u0018¶µª]\nV±+S¶Wo#æ½\u000f}êaz)õsí¯H\u0012\u001cÅ×t\u0026Õà@-ºÃ{° ^“0Ý·‹Avñ«*ÃÇ½Çxÿ³b�\u0018år„!5\u001eìJ‹™†\";Wâ+ZÎ:ñÞ6z\u0012\u0013Vf7²\u001f\u0026d(Ö`Ôë(ÈÐ\u0006Ës®L¶Îxkƒ\u0019#d3ŠS³\u0003û÷ÈÌöså–“«lìô¥\u0019\nsn†îl”\u003eWÀ2O®¨¢\u001eP™z\u0027X¶ZÂ¯µK�R¿š‚Ò¹�…²XqÂhøêz�a÷\u0012\tR‡\u001b\u0017­Ý\u0003[Ó\u0003wçAe\u0015P÷ù\u0013‰ÅûD´šŒ\u001e¾\nÇõQS{àkº³�ž.¤\u0011ðxÍþ\u000eõîd1œïëté+@aÞ\u0006þ`\u000b˜£‡už°F­\t\u001dýx¼Ûu\u0010JãÉjky¸Íè×É¥õîf5\u0004?o†~hãB“[€°CÍtÆ\u000eÒ\u001a6\fÀäôÓø\u0012º±‹†W\nG‹�¢Gt\u0019¦`|\u0015³ÕO ×cº…Ï·€ôÏÑ·¾€‰¶\u0004LI�„Òƒn\u001dš5\u001b±ý‡ZÕ$üSQt•«~ë]ÜŒÛ\u0003‡ v5¶ëÛU—í; á;ë„´\u0000ŽNS©ŠeÐæß._ÖY\u0006—eÒˆÚàa[ýßÜ]CoÖ\u001e\u0013Y·Í›õ[oµzäKË\u0016¶\u001a¥·ýÐË —ñŸ\\G/?œïl\u0007sÝQ¯\u000f±m\u0017�×û\u0001\u0014¥Ÿ6Uv@JúVb½~.^îlå\u0014V�î—¶p¾¤oïê2ØhÉ\u0000\u0006\u001bÔ“\u0013ÔC’\u001f\u0004z\u0018\u0012)_~\u0002b7È;tÔƒ¯\u001bÔ}»ÚC×®\u003dct3xÔ\u0018ùÓ‚Ø,õ\u0010Úúnšãá‚\u0006íu8\u0027\n¥â\u0000hùš†\u0017‹SiÊr€Ý 5Ï�åzê\u0007£Üßë…†Ìæ|¨^\rìƒ1\u0006v;²Cüd˜¢‹Änå\f\u0017\t¼�\\¿Õ¿ŽÓ¯\u001fúËèì\u0012ðÉcº¿ŠÞÅ»\t²ƒ]‡é]\u001doøzj6\u003dWÆá\u000b\\\u0006ó?\u0005Ïa\u0012™N‰\u0003®d·OÔ,þÊN×Ù†ý¸z¡ÞÛŠã\u001a\u003dé ›\u000b±¸ï\\4x\u0012°ó2oéÈN–Ö¯ —etÞ¤¶‚²\u0019ÐÊ\u000ežâ�¾wdá!,£\u0026©\u001aÐºB\u003dùÐ¿ßä\u001cÃôk\u0019Ö\u0002ü³D½d¿Ejìj\u0012t†¾?¾›fêR\u0026ŽS}@\bv\u0014Œ\u001aˆéZÛ5\u001c@½#Vj9H6ó\u0015LvØX3`�+t£ØØ�wqhÿÇk�—Ñ¹\u0016Ž‡\u000eÂ3zAWª\u000f°£7¸Ÿ\u0001\u001cVÄ\u0014XI*+Ä¹Ù¾6˜y\u001f\u0010Ü35@×kEiU\u001dPc¾ÀF\u0017w?´bw\u001am™Ã\u001c¤`ƒ“m\u003eaÔìÀAI‰zkMYŽÙFÕ\u0019¤Éã°��Ðõp\u0027‡Ž6¢·e\u0018Î\u0016\u001aŒo‚Ï³.ªÝŸÁcÅêÕ\tºh\u001f±0E7V{0¤+ô v­1p^pÇŒ©Ñ®XÈ[9\u0016É@D\u0014ŽÒ(]ï\u000eÑ\u000f\u001fú�ú?œßm\f|¸¸d\u0003�–`¥Ç™ñ\u0026Å‚T†vÑ/Rµlo‚»GoÔ½½:¥9\u0001lùv/\u0016ê´\tå\u0005–ª—nºŸâœ.ÌDÏ:ø\u000eÏ—©—%FüOÓ™Eú„\ríÎÉ\u0010ÃÌ\u001dãÔûá\u003cXGv‡{¸ÊêJ›(�Êíô°ukvZv+y7×\u0015Ë\u003cºé*õE0w®¥R�™•Þ\u0018!\r\u000b—TZPŸw�±†¢½J¿B#C\u0013êþb5½\u0006ó˜‰E6\u0018š½7ëÍ;U¦›�8n\u001c¤7\u001bù0‡kæû\u0001ŒxAŒó\u001e\u001c†{/\u0011˜Šš�\\�4þá\u003c¾ùi\u0007Í0\f˜®ßt8;cÎV¨ÏÓ\u00055°›ïüð~ÒPÁ\u0017 ÞÆá\u000bÎ´nn6”xYy\"v¤\u0001�ïÝ¦PÛîe\u003eŸº·6Ì±í\u0016à_Ar¦žÚ{¤A½\\Mw²}^4ÕOSëÓf\u0017vˆ^.UC™\u003c�\u001ej—g\u003eœÏ@[¼€²\u003c£ÓÕ­�›ž!\u001a€?ö$tÜh\u0017àP47ÆŽ\u0004\\¤™\fôÑ•\u0005ê\u003dðÉÍò\u0003�ÊñŒ/œjÊy¼¼\u0003ˆãj\\ñE?Å×í¶«\u0000\u003d�‡\u001bÔÀ\n¨WÎ\u003eI¸ÊŸ’’\\‹³ùb~\u003c¹YÙ\u0007‡4ld…f\u001f|\u0000cøí×Ù\u003e�´é7u…5«éI\u001bà†Ùv\f{eÜ£õæ!HÝýDÝîFLå\u001e¤õI•?¦š†{G#ë\u0000�Æ�£èU…\u0004ÆLú³\u0006róÒlò�‚–ÐÂ“èdŒÎl\u0014³eqä\u0027;\u0019¤A\u0003R­Úå°¦g•½kP\u0004\u001d®\tý\u001aóÅ92;²‹.[ôËI“h­‘Š}³íÝ\u0006ùCô^Ýo\u0006Jž–R\u0004`6:×°\u0007ëò\u001ec½\u0005–\u001b¥_¿¦§¹Ý•/Ë©¿T½Õ!#OÅ)õœž®ì�–ËdJ�²\bj¨šFk–\u0019·ß\u001bQÃð¹§—Ø¡Y9)\u0001fïŒÙ\tZ«ÌVQ5\u0012Ã(~Ølê~½tñ¸Ü°•ÆØ\u0002�g\u0027y{�zÞAã\u0007¥\u0011\u0010§\u001bô—\u003cCuv\u0006ºþ!�\u001cÕ.Ýý:NíC\b/×{–\u001bbñÏª0Ý‚á¼\u000bƒw\u000bº1~\u0012ìS\t–¯PãK;\u0000¸f ¯?ëJLQ1\u00155\u001dÛÊ½’Ð�ò¶eåô´#\u0001$Ú\u000b›ö€^u›c¢–\u0027Ê…X_›Â9(«\u0011ÖõwC\u0018‡\u0017­ž\u0007\u000f\\6’woï2\u000eò¼\\\u000fä\u003dô•ð!ï?â•¡‹:~e\u000ez1V[\\ š\u0015æl™ð’\u0006h·×¦try”\u001eg\u0007\u0013°÷\u003dkô¾\"}ËÂ]�•�êáRÍü\u001et\u003eCOLÎ®6Ûç:¡\u0006w³\u0026ìY \u0013Å@NÒ·¿õV®äƒ¸€ƒ./íVOx\u0006RøÆ\u0015©èó1ôù�˜½\nIªÕ¨AoT\u003d_\tCú\u0013]�3.–±Ÿr*.Yrï6ñ\u0015L®:œ�ÖqY2[õ�ù_-Žq°\t \u0014ÿÉi\u00075;Jä7\u0006–\u001dÜ»Ö»‡®Á\u0004ˆ«\u0010„l¾§\u001f\u0001ÔÆ\u000fÓe;ç«ÁÐ\u0014\u001f¦B?˜ºbÍb ¯“0 \u003dÂ‚\u0027\u0018RÀÉ\u0005Ê~Ð¬\u001eªG¡¯t®èâ*º¦€Áx\u0027Dm\u0007½Jš`t(Ûgêp6ÓK7\u0007É\u0007ë�\u001fâp°\u0004¡yo`ƒ8\t\u0015\u0010þ÷)×Šn³5„~Mpvö×£ôâD~ÜÍ#\u0005öÕ\u0007ÕÐ^\u0000«;ôêX,;¹‹.m2J7´ÉW„Õ‚Cx\rt|l\u0012\u0016•\u0012Xá°\u001c8ü\r/ë\u0015:³\t|õp“,¡×¤K«Ô´\u0017\u0016³wñzúÆd\u0015i°Q\u003dª§wÀ\u001cC¿õj·…Þ­4§ÊÕú\u0002UÍ²/­b�)\u00126»rÖ˜Ð‚ùÓ\u003c ›1\u0004ªäŸ\"ð‰#éþd\u0007b×ç|ó—üÌ;ÅÎÌKŠ²j\u003eù˜wîçåsoe³Tô±vf\u001dó[´£±~Í–Fw,$\u0007¶ò;�·øS­öqô\rzœ\u003epäW™H°�\u000ff´’þ œ\u001cª¯ñ™—Î©¬™H4íêŒ¤[]�¡LS\"\u0011M¹Ú£™\u0016¾Æ§LÆºr\u001dT@Rõù“©ÖD»ÛÅ]ðú¥W)+Éï¥æw‚G’æ•^‘x*í�Få�-æ4øY�è\u003e¬ˆ~½\u0017\u000f4\u001a�läW3ÖÇCÉD$äÚ™Î„\"\t·k{ÔâséååØs\u001b�˜£åõ9˜ÑDÐŸ¶¤Š\u0026èwµ\u0026­°Ñ\u0027E­ét{ª®¼\\\u000eMŒúã-îD²¥\u003c”\b¦ÊÓ™tBŸéXn…2ei\u001ed\u0019zMÆ­¤»5\u001d‹úŠ\\i²EÞyÇ�\u001d\n �6Y·JË~wae°Ü\u0014œº™8šJ.ýê\u000f{ÈöQùsèýg�îý\u0017ÏÍü\u001fóîß¢T\u0026Æ\u0027òË‹vò×v{Òr\u000e§-3,Rn/Ån³ðš\u001dsÇl6˜ƒ(\u000bÙOnjO\u0026Z’þX\f3\u003eÄÄÎø[ô3B~¹\u0027ÿ{+^ô?\u0027ÿPK\u0007\b(²”Ñ\u0001V\u0000\u0000?ô\u0000\u0000PK\u0001\u0002\u0014\u0000\u0014\u0000\b\b\b\u0000œ„–K(²”Ñ\u0001V\u0000\u0000?ô\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000course.jsonPK\u0005\u0006\u0000\u0000\u0000\u0000\u0001\u0000\u0001\u00009\u0000\u0000\u0000:V\u0000\u0000\u0000\u0000",
+            "README.md": "# CodeMash Kotlin Course\r\nQuick Interactive course on Kotlin, built with EduTools plugin, for my CodeMash 2018 workshop. \r\n\r\nThis series requires the installation of the EduTools plugin for either IntelliJ or Android Studio. Please follow the installation instructions located\u003ca href\u003d\"https://kotlinlang.org/docs/tutorials/edu-tools-learner.html\" targer\u003d\"_blank\"\u003ehere\u003c/a\u003e.\r\n \r\n After installing the EduTools plugin, "
+          },
+          "task_texts": {},
+          "task_type": "edu"
+        }
+      ]
+    }
+  ],
+  "summary": "CodeMash 2018 Precompiler - Kotlin/Android Workshop",
+  "title": "Codemash Kotlin Course",
+  "programming_language": "kotlin",
+  "language": "en"
+}
