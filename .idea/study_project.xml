@@ -280,7 +280,7 @@
                     <EduTask>
                       <option name="index" value="5" />
                       <option name="name" value="Types" />
-                      <option name="status" value="Unchecked" />
+                      <option name="status" value="Solved" />
                       <option name="stepId" value="0" />
                       <option name="stepikPosition" value="0" />
                       <option name="taskTexts">
@@ -1142,6 +1142,75 @@
                         </map>
                       </option>
                     </EduTask>
+                    <EduTask>
+                      <option name="index" value="7" />
+                      <option name="name" value="Destructuring Classes" />
+                      <option name="status" value="Solved" />
+                      <option name="stepId" value="0" />
+                      <option name="stepikPosition" value="0" />
+                      <option name="taskTexts">
+                        <map>
+                          <entry key="task" value="# Destructuring Declarations&#10;Sometimes it is convenient to destructure an object into a number of variables, for example:&#10;```&#10;val (name, age) = person &#10;```&#10;This syntax is called a destructuring declaration. A destructuring declaration creates multiple variables at once. We have declared two new variables: name and age, and can use them independently:&#10;```&#10;println(name)&#10;println(age)&#10;```" />
+                        </map>
+                      </option>
+                      <option name="testsText">
+                        <map>
+                          <entry key="Tests.kt" value="import org.junit.Assert&#10;import org.junit.Test&#10;&#10;class Test {&#10;    @Test fun testSolution() {&#10;        //TODO: implement your test here&#10;        Assert.assertTrue(&quot;Tests not implemented for the task&quot;, false)&#10;    }&#10;}" />
+                        </map>
+                      </option>
+                      <option name="updateDate" />
+                      <option name="taskFiles">
+                        <map>
+                          <entry key="Task.kt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="0" />
+                                      <option name="initialState" />
+                                      <option name="length" value="74" />
+                                      <option name="offset" value="112" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list>
+                                                    <option value="val (something, something, something = date" />
+                                                  </list>
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="Destructure the date passed in into year, month, and dayOfMonth variables." />
+                                                <option name="possibleAnswer" value="val (year, month, dayOfMonth) = date" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                  </list>
+                                </option>
+                                <option name="highlightErrors" value="true" />
+                                <option name="index" value="-1" />
+                                <option name="trackChanges" value="true" />
+                                <option name="trackLengths" value="true" />
+                                <option name="userCreated" value="false" />
+                                <option name="name" value="Task.kt" />
+                                <option name="text" value="// type your solution here" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                        </map>
+                      </option>
+                    </EduTask>
                   </list>
                 </option>
               </Lesson>
@@ -1151,7 +1220,334 @@
                 <option name="name" value="Collections" />
                 <option name="updateDate" />
                 <option name="taskList">
-                  <list />
+                  <list>
+                    <EduTask>
+                      <option name="index" value="1" />
+                      <option name="name" value="Introduction" />
+                      <option name="status" value="Solved" />
+                      <option name="stepId" value="0" />
+                      <option name="stepikPosition" value="0" />
+                      <option name="taskTexts">
+                        <map>
+                          <entry key="task" value="# Collections: List, Set, Map&#10;&#10;Unlike many languages, Kotlin distinguishes between mutable and immutable collections (lists, sets, maps, etc). Precise control over exactly when collections can be edited is useful for eliminating bugs, and for designing good APIs.&#10;&#10;It is important to understand up front the difference between a read-only view of a mutable collection, and an actually immutable collection. Both are easy to create, but the type system doesn't express the difference, so keeping track of that (if it's relevant) is up to you.&#10;&#10;The Kotlin `List&lt;out T&gt;` type is an interface that provides read-only operations like size, get and so on. Like in Java, it inherits from `Collection&lt;T&gt;` and that in turn inherits from `Iterable&lt;T&gt;`. Methods that change the list are added by the `MutableList&lt;T&gt;` interface. This pattern holds also for `Set&lt;out T&gt;`/`MutableSet&lt;T&gt;` and `Map&lt;K, out V&gt;`/`MutableMap&lt;K, V&gt;`.&#10;&#10;&#10;```&#10;val numbers: MutableList&lt;Int&gt; = mutableListOf(1, 2, 3)&#10;val readOnlyView: List&lt;Int&gt; = numbers&#10;println(numbers)        // prints &quot;[1, 2, 3]&quot;&#10;numbers.add(4)&#10;println(readOnlyView)   // prints &quot;[1, 2, 3, 4]&quot;&#10;readOnlyView.clear()    // -&gt; does not compile&#10;&#10;val strings = hashSetOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;)&#10;assert(strings.size == 3)&#10;```&#10;&#10;Kotlin does not have dedicated syntax constructs for creating lists or sets. Use methods from the standard library, such as `listOf()`, `mutableListOf()`, `setOf()`, `mutableSetOf()`. &#10;&#10;Map creation in NOT performance-critical code can be accomplished with a simple idiom: `mapOf(a to b, c to d)`.&#10;&#10;Note that the readOnlyView variable points to the same list and changes as the underlying list changes. If the only references that exist to a list are of the read-only variety, we can consider the collection fully immutable. A simple way to create such a collection is like this:&#10;&#10;```&#10;val items = listOf(1, 2, 3)&#10;```&#10;&#10;There are various useful extension methods on lists and sets that are worth being familiar with:&#10;```&#10;val items = listOf(1, 2, 3, 4)&#10;items.first() == 1&#10;items.last() == 4&#10;&#10;val rwList = mutableListOf(1, 2, 3)&#10;rwList.requireNoNulls()        // returns [1, 2, 3]&#10;val item = rwList.firstOrNull()&#10;```" />
+                        </map>
+                      </option>
+                      <option name="testsText">
+                        <map>
+                          <entry key="Tests.kt" value="import org.junit.Assert&#10;import org.junit.Test&#10;&#10;class Test {&#10;    @Test fun testSolution() {&#10;        //TODO: implement your test here&#10;        Assert.assertTrue(&quot;Tests not implemented for the task&quot;, false)&#10;    }&#10;}" />
+                        </map>
+                      </option>
+                      <option name="updateDate" />
+                      <option name="taskFiles">
+                        <map>
+                          <entry key="Task.kt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="0" />
+                                      <option name="initialState" />
+                                      <option name="length" value="39" />
+                                      <option name="offset" value="80" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="Print the last item in the strings list" />
+                                                <option name="possibleAnswer" value="strings.last()" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="1" />
+                                      <option name="initialState" />
+                                      <option name="length" value="41" />
+                                      <option name="offset" value="154" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="print the max numer in the set of numbers" />
+                                                <option name="possibleAnswer" value="numbers.max()" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="2" />
+                                      <option name="initialState" />
+                                      <option name="length" value="26" />
+                                      <option name="offset" value="216" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="Return the sum of the list" />
+                                                <option name="possibleAnswer" value="arr.sum()" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                  </list>
+                                </option>
+                                <option name="highlightErrors" value="true" />
+                                <option name="index" value="-1" />
+                                <option name="trackChanges" value="true" />
+                                <option name="trackLengths" value="true" />
+                                <option name="userCreated" value="false" />
+                                <option name="name" value="Task.kt" />
+                                <option name="text" value="// type your solution here" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                        </map>
+                      </option>
+                    </EduTask>
+                    <EduTask>
+                      <option name="index" value="2" />
+                      <option name="name" value="Maps" />
+                      <option name="status" value="Solved" />
+                      <option name="stepId" value="0" />
+                      <option name="stepikPosition" value="0" />
+                      <option name="taskTexts">
+                        <map>
+                          <entry key="task" value="# Maps&#10;&#10;Maps associate keys to values. The keys must be unique, but the associated values don't need to be. That way, each key can be used to uniquely identify the associated value, since the map makes sure that you can't have duplicate keys in the collection. Behind the scenes, Kotlin uses the Java Map collection to implement its map collection type.&#10;&#10;### Using the mapOf() Function&#10;To create an immutable or read-only Map collection in Kotlin, we use the mapOf() function. We create a map with this function by giving it a list of pairs—the first value is the key, and the second is the value. Calling this function returns a Kotlin Map interface type. &#10;```&#10;val callingCodesMap: Map&amp;lt;Int, String&amp;gt; = mapOf(234 to &quot;Nigeria&quot;, 1 to &quot;USA&quot;, 233 to &quot;Ghana&quot;)&#10;for ((key, value) in callingCodesMap) {&#10;    println(&quot;$key is the calling code for $value&quot;)&#10;}&#10;print(callingCodesMap[234]) // Nigeria&#10;```&#10;&#10;Note: The word `to` in this line of code isn't a built-in construct, but rather a method invocation of a special kind called an `infix call`.&#10;&#10;`1.to(&quot;one&quot;)` --&gt; the &quot;normal&quot; way to call the `to` function&#10;&#10;`1 to &quot;one&quot;` --&gt; the &quot;infix&quot; function calling the `to` function&#10;&#10;Running the code above will produce the result: &#10;```&#10;234 is the calling code for Nigeria&#10;1 is the calling code for USA&#10;233 is the calling code for Ghana&#10;```" />
+                        </map>
+                      </option>
+                      <option name="testsText">
+                        <map>
+                          <entry key="Tests.kt" value="import org.junit.Assert&#10;import org.junit.Test&#10;&#10;class Test {&#10;    @Test fun testSolution() {&#10;        //TODO: implement your test here&#10;        Assert.assertTrue(&quot;Tests not implemented for the task&quot;, false)&#10;    }&#10;}" />
+                        </map>
+                      </option>
+                      <option name="updateDate" />
+                      <option name="taskFiles">
+                        <map>
+                          <entry key="Task.kt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="true" />
+                                <option name="index" value="-1" />
+                                <option name="trackChanges" value="true" />
+                                <option name="trackLengths" value="true" />
+                                <option name="userCreated" value="false" />
+                                <option name="name" value="Task.kt" />
+                                <option name="text" value="// type your solution here" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                        </map>
+                      </option>
+                    </EduTask>
+                    <EduTask>
+                      <option name="index" value="3" />
+                      <option name="name" value="Range" />
+                      <option name="status" value="Solved" />
+                      <option name="stepId" value="0" />
+                      <option name="stepikPosition" value="0" />
+                      <option name="taskTexts">
+                        <map>
+                          <entry key="task" value="# Range&#10;&#10;A Range in Kotlin is a unique type that defines a start value and an end value. In other words, it is an interval between a start and an end value. Ranges in Kotlin are closed, meaning that the start value and end value are included in the range. &#10;&#10;We'll now look at the different ways of creating ranges in Kotlin. &#10;&#10;### The .. Operator&#10;```&#10;val oneToFive = 1..5&#10;```&#10;In the code above, we have created a closed range. This variable oneToFive will include the following values: 1, 2, 3, 4, 5. We can loop over it using the for loop construct. &#10;&#10;```&#10;for (n in oneToFive) {&#10;    print(n)&#10;}&#10;```&#10;&#10;### The rangeTo() Function&#10;The `..` operator can be replaced with the rangeTo() extension function to create a range. For example, we can also do this 1.rangeTo(5) and it would still have the same results as using the .. operator as discussed earlier. &#10;```&#10;val oneToFive: IntRange = 1.rangeTo(5)&#10;```&#10;&#10;### The downTo() Function&#10;This is another extension function that will create a range starting from a given number down to another one. &#10;```&#10;val fiveToOne = 5.downTo(1)&#10;```&#10;We can modify the range using the `step()` function. This will modify the delta between each element in the range. &#10;```&#10;val oneToTenStep = 1..10 step 2 // 1, 3, 5, 7, 9&#10;```&#10;The code above will contain odd numbers between 1 and 10. &#10;&#10;### The in Operator&#10;The `in` operator is used to ascertain whether a value is present in a given range. &#10;```&#10;if (5 in 1..10) {&#10;    print(&quot;Yes 5 is in the range&quot;) // prints &quot;Yes 5 is in the range&quot;&#10;}&#10;```&#10;In the code above, we checked to see if 5 is in the range 1..10 using the in operator. We can also do the opposite by using !n to check if 5 is not in the range. " />
+                        </map>
+                      </option>
+                      <option name="testsText">
+                        <map>
+                          <entry key="Tests.kt" value="import org.junit.Assert&#10;import org.junit.Test&#10;&#10;class Test {&#10;    @Test fun testSolution() {&#10;        //TODO: implement your test here&#10;        Assert.assertTrue(&quot;Tests not implemented for the task&quot;, false)&#10;    }&#10;}" />
+                        </map>
+                      </option>
+                      <option name="updateDate" />
+                      <option name="taskFiles">
+                        <map>
+                          <entry key="Task.kt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="0" />
+                                      <option name="initialState" />
+                                      <option name="length" value="26" />
+                                      <option name="offset" value="30" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="Create a range from 1 to 5" />
+                                                <option name="possibleAnswer" value="1..5" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="1" />
+                                      <option name="initialState" />
+                                      <option name="length" value="55" />
+                                      <option name="offset" value="37" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="Loop over the range and use println to print the number" />
+                                                <option name="possibleAnswer" value="for(n in range){&#10;&#9;&#9;println(n)&#10;&#9;}" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                  </list>
+                                </option>
+                                <option name="highlightErrors" value="true" />
+                                <option name="index" value="-1" />
+                                <option name="trackChanges" value="true" />
+                                <option name="trackLengths" value="true" />
+                                <option name="userCreated" value="false" />
+                                <option name="name" value="Task.kt" />
+                                <option name="text" value="// type your solution here" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                        </map>
+                      </option>
+                    </EduTask>
+                    <EduTask>
+                      <option name="index" value="4" />
+                      <option name="name" value="Higher-Order Function" />
+                      <option name="status" value="Solved" />
+                      <option name="stepId" value="0" />
+                      <option name="stepikPosition" value="0" />
+                      <option name="taskTexts">
+                        <map>
+                          <entry key="task" value="# Higher-Order Functions&#10;&#10;A higher-order function is a function that takes functions as parameters, or returns a function. &#10;&#10;An example of a higher-order function is map:&#10;&#10;```&#10;fun &amp;lt;T, R&amp;gt; List&amp;lt;T&amp;gt;.map(transform: (T) -&gt; R): List&amp;lt;R&amp;gt; {&#10;    val result = arrayListOf&amp;lt;R&amp;gt;()&#10;    for (item in this)&#10;        result.add(transform(item))&#10;    return result&#10;}&#10;```&#10;&#10;This function can be called as follows:&#10;```&#10;val doubled = ints.map { value -&gt; value * 2 }&#10;```&#10;&#10;Note that the parentheses in a call can be omitted entirely if the lambda is the only argument to that call.&#10;&#10;### it: implicit name of a single parameter&#10;One other helpful convention is that if a function literal has only one parameter, its declaration may be omitted (along with the -&gt;), and its name will be it:&#10;```&#10;ints.map { it * 2 }&#10;```&#10;&#10;These conventions allow to write LINQ-style code:&#10;```&#10;strings.filter { it.length == 5 }.sortedBy { it }.map { it.toUpperCase() }&#10;```" />
+                        </map>
+                      </option>
+                      <option name="testsText">
+                        <map>
+                          <entry key="Tests.kt" value="import org.junit.Assert&#10;import org.junit.Test&#10;&#10;class Test {&#10;    @Test fun testSolution() {&#10;        //TODO: implement your test here&#10;        Assert.assertTrue(&quot;Tests not implemented for the task&quot;, false)&#10;    }&#10;}" />
+                        </map>
+                      </option>
+                      <option name="updateDate" />
+                      <option name="taskFiles">
+                        <map>
+                          <entry key="Task.kt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="0" />
+                                      <option name="initialState" />
+                                      <option name="length" value="86" />
+                                      <option name="offset" value="111" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list>
+                                                    <option value="Research maxBy" />
+                                                    <option value="Rember: &quot;it&quot; is the implicit parameter" />
+                                                  </list>
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="Use the maxBy higher-order function to complete this function to find the older person" />
+                                                <option name="possibleAnswer" value="people.maxBy { it.age }" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                  </list>
+                                </option>
+                                <option name="highlightErrors" value="true" />
+                                <option name="index" value="-1" />
+                                <option name="trackChanges" value="true" />
+                                <option name="trackLengths" value="true" />
+                                <option name="userCreated" value="false" />
+                                <option name="name" value="Task.kt" />
+                                <option name="text" value="// type your solution here" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                        </map>
+                      </option>
+                    </EduTask>
+                  </list>
                 </option>
               </Lesson>
             </list>

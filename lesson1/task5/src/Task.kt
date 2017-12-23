@@ -1,3 +1,1 @@
-fun foo(){
-
-}
+// Yeah, there's no test on this one. Just an fyi...

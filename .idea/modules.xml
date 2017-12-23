@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/task4/lesson1-task4.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/task4/lesson1-task4.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/task5/lesson1-task5.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/task5/lesson1-task5.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/task6/lesson1-task6.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/task6/lesson1-task6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/task7/lesson1-task7.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/task7/lesson1-task7.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson2/lesson2.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson2/lesson2.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson2/task1/lesson2-task1.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson2/task1/lesson2-task1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson2/task2/lesson2-task2.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson2/task2/lesson2-task2.iml" />
@@ -21,7 +22,13 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson3/task4/lesson3-task4.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson3/task4/lesson3-task4.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson3/task5/lesson3-task5.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson3/task5/lesson3-task5.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson3/task6/lesson3-task6.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson3/task6/lesson3-task6.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson1/task7/task7.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson1/task7/task7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson3/task7/lesson3-task7.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson3/task7/lesson3-task7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson4/lesson4.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson4/lesson4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson4/task1/lesson4-task1.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson4/task1/lesson4-task1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson4/task2/lesson4-task2.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson4/task2/lesson4-task2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson4/task3/lesson4-task3.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson4/task3/lesson4-task3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson4/task4/lesson4-task4.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson4/task4/lesson4-task4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lesson4/task5/lesson4-task5.iml" filepath="$PROJECT_DIR$/.idea/modules/lesson4/task5/lesson4-task5.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/util.iml" />
     </modules>
   </component>
