@@ -21,7 +21,6 @@ class Test {
         System.setErr(null)
     }
 
-
     @Test fun testSolution() {
 
         val languages = arrayOf("Ruby", "Kotlin", "Python", "Java")

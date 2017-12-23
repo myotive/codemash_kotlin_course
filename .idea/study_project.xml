@@ -534,7 +534,7 @@
                       <option name="stepikPosition" value="0" />
                       <option name="taskTexts">
                         <map>
-                          <entry key="task" value="# When Expression&#10;when replaces the switch operator of C-like languages. In the simplest form it looks like this&#10;```&#10;when (x) {&#10;    1 -&gt; print(&quot;x == 1&quot;)&#10;    2 -&gt; print(&quot;x == 2&quot;)&#10;    else -&gt; { // Note the block&#10;        print(&quot;x is neither 1 nor 2&quot;)&#10;    }&#10;}&#10;```&#10;&#10;when matches its argument against all branches sequentially until some branch condition is satisfied. when can be used either as an expression or as a statement. If it is used as an expression, the value of the satisfied branch becomes the value of the overall expression. If it is used as a statement, the values of individual branches are ignored. (Just like with if, each branch can be a block, and its value is the value of the last expression in the block.)&#10;&#10;The else branch is evaluated if none of the other branch conditions are satisfied. If when is used as an expression, the else branch is mandatory, unless the compiler can prove that all possible cases are covered with branch conditions.&#10;&#10;If many cases should be handled in the same way, the branch conditions may be combined with a comma:&#10;```&#10;when (x) {&#10;    0, 1 -&gt; print(&quot;x == 0 or x == 1&quot;)&#10;    else -&gt; print(&quot;otherwise&quot;)&#10;}&#10;```&#10;&#10;We can use arbitrary expressions (not only constants) as branch conditions&#10;```&#10;when (x) {&#10;    parseInt(s) -&gt; print(&quot;s encodes x&quot;)&#10;    else -&gt; print(&quot;s does not encode x&quot;)&#10;}&#10;```" />
+                          <entry key="task" value="# When Expression&#10;when replaces the switch operator of C-like languages. In the simplest form it looks like this&#10;```&#10;when (x) {&#10;    1 -&gt; print(&quot;x == 1&quot;)&#10;    2 -&gt; print(&quot;x == 2&quot;)&#10;    else -&gt; { // Note the block&#10;        print(&quot;x is neither 1 nor 2&quot;)&#10;    }&#10;}&#10;```&#10;&#10;when matches its argument against all branches sequentially until some branch condition is satisfied. when can be used either as an expression or as a statement. If it is used as an expression, the value of the satisfied branch becomes the value of the overall expression. If it is used as a statement, the values of individual branches are ignored. (Just like with if, each branch can be a block, and its value is the value of the last expression in the block.)&#10;&#10;The else branch is evaluated if none of the other branch conditions are satisfied. If when is used as an expression, the else branch is mandatory, unless the compiler can prove that all possible cases are covered with branch conditions.&#10;&#10;If many cases should be handled in the same way, the branch conditions may be combined with a comma:&#10;```&#10;when (x) {&#10;    0, 1 -&gt; print(&quot;x == 0 or x == 1&quot;)&#10;    else -&gt; print(&quot;otherwise&quot;)&#10;}&#10;```&#10;&#10;We can use arbitrary expressions (not only constants) as branch conditions&#10;```&#10;when {&#10;    parseInt(s) -&gt; print(&quot;s encodes x&quot;)&#10;    else -&gt; print(&quot;s does not encode x&quot;)&#10;}&#10;```" />
                         </map>
                       </option>
                       <option name="testsText">
@@ -553,8 +553,8 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="82" />
-                                      <option name="offset" value="112" />
+                                      <option name="length" value="72" />
+                                      <option name="offset" value="80" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
                                         <map>
@@ -567,8 +567,8 @@
                                                   <list />
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="When number isOdd, print the word &quot;Odd&quot;. When number isEven, print the word &quot;Even&quot;" />
-                                                <option name="possibleAnswer" value="        isOdd(number) -&gt; println(&quot;Odd&quot;)&#10;        isEven(number) -&gt; println(&quot;Even&quot;)" />
+                                                <option name="placeholderText" value=" When number isEven, print the word &quot;Even&quot;, otherwise print the word Odd" />
+                                                <option name="possibleAnswer" value="        isEven(number) -&gt; println(&quot;Even&quot;)&#10;&#9;&#9;else -&gt; println(&quot;Odd&quot;)" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
                                               </AnswerPlaceholderSubtaskInfo>
@@ -621,7 +621,7 @@
                                       <option name="index" value="0" />
                                       <option name="initialState" />
                                       <option name="length" value="60" />
-                                      <option name="offset" value="84" />
+                                      <option name="offset" value="85" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
                                         <map>
@@ -637,7 +637,7 @@
                                                 </option>
                                                 <option name="needInsertText" value="false" />
                                                 <option name="placeholderText" value="Create a loop that prints the contents of the language array" />
-                                                <option name="possibleAnswer" value="    for (item in language)&#10;        println(item)" />
+                                                <option name="possibleAnswer" value="    for (language in languages)&#10;        println(language)" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
                                               </AnswerPlaceholderSubtaskInfo>
@@ -680,7 +680,7 @@
                       <option name="stepikPosition" value="0" />
                       <option name="taskTexts">
                         <map>
-                          <entry key="task" value="# Basics of Classes&#10;```&#10;class Invoice {&#10;}&#10;```&#10;The class declaration consists of the class name, the class header (specifying its type parameters, the primary constructor etc.) and the class body, surrounded by curly braces. Both the header and the body are optional; if the class has no body, curly braces can be omitted.&#10;&#10;```&#10;class Empty&#10;```&#10;&#10;## Constructors&#10;A class in Kotlin can have a primary constructor and one or more secondary constructors. The primary constructor is part of the class header: it goes after the class name (and optional type parameters).&#10;```&#10;class Person constructor(firstName: String) {&#10;}&#10;```&#10;If the primary constructor does not have any annotations or visibility modifiers, the constructor keyword can be omitted:&#10;```&#10;class Person(firstName: String) {&#10;}&#10;```&#10;The primary constructor cannot contain any code. Initialization code can be placed in initializer blocks, which are prefixed with the init keyword:&#10;```&#10;class Customer(name: String) {&#10;    init {&#10;        logger.info(&quot;Customer initialized with value ${name}&quot;)&#10;    }&#10;}&#10;```&#10;&#10;Declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:&#10;```&#10;class Person(val firstName: String, val lastName: String, var age: Int) {&#10;    // ...&#10;}&#10;```&#10;Much the same way as regular properties, the properties declared in the primary constructor can be mutable (var) or read-only (val)." />
+                          <entry key="task" value="# Basics of Classes&#10;```&#10;class Invoice {&#10;}&#10;```&#10;The class declaration consists of the class name, the class header (specifying its type parameters, the primary constructor etc.) and the class body, surrounded by curly braces. Both the header and the body are optional; if the class has no body, curly braces can be omitted.&#10;&#10;```&#10;class Empty&#10;```&#10;&#10;## Constructors&#10;A class in Kotlin can have a primary constructor and one or more secondary constructors. The primary constructor is part of the class header: it goes after the class name (and optional type parameters).&#10;```&#10;class Person constructor(firstName: String) {&#10;}&#10;```&#10;If the primary constructor does not have any annotations or visibility modifiers, the constructor keyword can be omitted:&#10;```&#10;class Person(firstName: String) {&#10;}&#10;```&#10;The primary constructor cannot contain any code. Initialization code can be placed in initializer blocks, which are prefixed with the init keyword:&#10;```&#10;class Customer(name: String) {&#10;    init {&#10;        logger.info(&quot;Customer initialized with value ${name}&quot;)&#10;    }&#10;}&#10;```&#10;&#10;Classes in Kotlin can have properties. These can be declared as mutable, using the `var` keyword or read-only using the `val` keyword.&#10;```&#10;class Address {&#10;    var name: String = ...&#10;    var street: String = ...&#10;    var city: String = ...&#10;    var state: String? = ...&#10;    var zip: String = ...&#10;}&#10;```&#10;&#10;Declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:&#10;```&#10;class Person(val firstName: String, val lastName: String, var age: Int) {&#10;    // ...&#10;}&#10;```&#10;Much the same way as regular properties, the properties declared in the primary constructor can be mutable (`var`) or read-only (`val`)." />
                         </map>
                       </option>
                       <option name="testsText">
