@@ -1,25 +1,13 @@
-import org.junit.After
-import org.junit.Assert
-import org.junit.Before
+import org.junit.*
 import org.junit.Test
+import org.junit.contrib.java.lang.system.SystemOutRule
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 
 class Test {
-    private val outContent = ByteArrayOutputStream()
-    private val errContent = ByteArrayOutputStream()
 
-    @Before
-    fun setUpStreams() {
-        System.setOut(PrintStream(outContent))
-        System.setErr(PrintStream(errContent))
-    }
-
-    @After
-    fun cleanUpStreams() {
-        System.setOut(null)
-        System.setErr(null)
-    }
+	@get:Rule
+	val systemOutRule = SystemOutRule().enableLog()
 
     @Test fun testSolution() {
 
@@ -27,8 +15,9 @@ class Test {
 
         forLoopTest()
 
-        Assert.assertNotNull(outContent.toString())
-        val results = outContent.toString().split("\r\n")
+		val output = systemOutRule.log
+        Assert.assertNotNull(output)
+        val results = output.split("\r\n")
         results
             .filter { it != "" }
             .forEach { Assert.assertTrue(languages.contains(it)) }
