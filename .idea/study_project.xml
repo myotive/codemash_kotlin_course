@@ -77,7 +77,7 @@
                                                 <option name="placeholderText" value="Print something out here" />
                                                 <option name="possibleAnswer" value="&quot;Hello World&quot;" />
                                                 <option name="selected" value="false" />
-                                                <option name="status" value="Unchecked" />
+                                                <option name="status" value="Solved" />
                                               </AnswerPlaceholderSubtaskInfo>
                                             </value>
                                           </entry>
