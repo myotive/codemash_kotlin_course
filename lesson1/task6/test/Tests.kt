@@ -9,6 +9,9 @@ class Test {
     private val outContent = ByteArrayOutputStream()
     private val errContent = ByteArrayOutputStream()
 
+	private val OS = System.getProperty("os.name").toLowerCase()
+	fun isWindows(): Boolean = OS.indexOf("win") >= 0
+
     @Before
     fun setUpStreams() {
         System.setOut(PrintStream(outContent))
@@ -28,7 +31,8 @@ class Test {
         Assert.assertNotNull(outContent.toString())
 
         val testResults = arrayOf("3", "0")
-        val results = outContent.toString().split("\r\n")
+		val delimitor = if(isWindows()) "\r\n" else "\n"
+        val results = outContent.toString().split(delimitor)
         results.filter { it != "" }
                 .forEach { Assert.assertTrue(testResults.contains(it)) }
     }
