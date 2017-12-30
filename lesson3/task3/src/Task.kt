@@ -4,6 +4,7 @@
 class PropertyExample {
     var counter = 0
     var propertyWithCounter: Int? = null
+		// Add Custom Setter Heres
         set(value){
             field = value
             counter += 1
