@@ -3,7 +3,10 @@ import org.junit.Test
 
 class Test {
     @Test fun testSolution() {
-        //TODO: implement your test here
-        Assert.assertTrue("Tests not implemented for the task", true)
+        val number = testNumbers()
+		Assert.assertTrue(number == "10")
+
+		val result = testString(2018)
+		Assert.assertTrue(result == "CodeMash 2018" || result == "CodeMash2018")
     }
 }

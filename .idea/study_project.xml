@@ -38,7 +38,7 @@
                       <option name="stepikPosition" value="0" />
                       <option name="taskTexts">
                         <map>
-                          <entry key="task" value="Write task description here using markdown or html" />
+                          <entry key="task" value="# Oh Hi Mark&#10;&#10;&lt;img src = &quot;https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png&quot; /&gt;&#10;&#10;Welcome to the wonderful language of Kotlin! &#10;&#10;Use this first example to print anything out! Anything you like! Go fo it!" />
                         </map>
                       </option>
                       <option name="testsText">
@@ -57,8 +57,8 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="24" />
-                                      <option name="offset" value="43" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="44" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
                                         <map>
@@ -68,14 +68,11 @@
                                                 <option name="answer" value="" />
                                                 <option name="hasFrame" value="true" />
                                                 <option name="hints">
-                                                  <list>
-                                                    <option value="Say something... anything, really." />
-                                                    <option value="Could be your name. Could be &quot;Hello World.&quot; I dunno. " />
-                                                  </list>
+                                                  <list />
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Print something out here" />
-                                                <option name="possibleAnswer" value="&quot;Hello World&quot;" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="Hello World" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Unchecked" />
                                               </AnswerPlaceholderSubtaskInfo>
@@ -139,6 +136,7 @@
                                                 <option name="hasFrame" value="true" />
                                                 <option name="hints">
                                                   <list>
+                                                    <option value="Declare the function &quot;sum&quot; here" />
                                                     <option value="fun sum(x : Int, y : Int) : Int" />
                                                     <option value="fun sum(x : Int, y : Int) : Int &#10;{&#10;    return &lt;something&gt;&#10;}" />
                                                   </list>
@@ -197,7 +195,7 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="27" />
+                                      <option name="length" value="4" />
                                       <option name="offset" value="42" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
@@ -209,11 +207,12 @@
                                                 <option name="hasFrame" value="true" />
                                                 <option name="hints">
                                                   <list>
+                                                    <option value="Don't cheat. One line only." />
                                                     <option value="fun sum(x: Int, y: Int) = ..." />
                                                   </list>
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Don't cheat. One line only." />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="fun sum(x: Int, y: Int) = x + y" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -247,7 +246,7 @@
                       <option name="stepikPosition" value="0" />
                       <option name="taskTexts">
                         <map>
-                          <entry key="task" value="# Variables&#10;&#10;&lt;strong&gt;Note: There's nothing to implement for this task. Just read the code and click the &quot;check task&quot; button&lt;/strong&gt;&#10;&#10;This example shows how to declare and initialize variables. &#10;&#10;Also, we can see how to declare mutable/immutable variables in kotlin.&#10;&#10;```&#10;val a: Int = 1  // immediate assignment&#10;val b = 2   // `Int` type is inferred&#10;val c: Int  // Type required when no initializer is provided&#10;c = 3       // deferred assignment&#10;```&#10;" />
+                          <entry key="task" value="# Variables&#10;&#10;This example shows how to declare and initialize variables. &#10;&#10;Also, we can see how to declare mutable/immutable variables in kotlin.&#10;&#10;```&#10;val a: Int = 1  // immediate assignment&#10;val b = 2   // `Int` type is inferred&#10;val c: Int  // Type required when no initializer is provided&#10;c = 3       // deferred assignment&#10;```&#10;" />
                         </map>
                       </option>
                       <option name="testsText">
@@ -262,7 +261,148 @@
                             <value>
                               <TaskFile>
                                 <option name="answerPlaceholders">
-                                  <list />
+                                  <list>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="0" />
+                                      <option name="initialState" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="104" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="&quot;&quot;" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="1" />
+                                      <option name="initialState" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="122" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="&quot;Foo&quot;" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="2" />
+                                      <option name="initialState" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="215" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="val" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="3" />
+                                      <option name="initialState" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="477" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="2" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="4" />
+                                      <option name="initialState" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="622" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="Int" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                  </list>
                                 </option>
                                 <option name="highlightErrors" value="true" />
                                 <option name="index" value="-1" />
@@ -300,7 +440,64 @@
                             <value>
                               <TaskFile>
                                 <option name="answerPlaceholders">
-                                  <list />
+                                  <list>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="0" />
+                                      <option name="initialState" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="100" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="integer.toString()" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="1" />
+                                      <option name="initialState" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="263" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="&quot;$str $input&quot;" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Solved" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                  </list>
                                 </option>
                                 <option name="highlightErrors" value="true" />
                                 <option name="index" value="-1" />
@@ -620,7 +817,7 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="60" />
+                                      <option name="length" value="4" />
                                       <option name="offset" value="85" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
@@ -632,11 +829,12 @@
                                                 <option name="hasFrame" value="true" />
                                                 <option name="hints">
                                                   <list>
+                                                    <option value="Create a loop that prints the contents of the language array" />
                                                     <option value="for(item in language)" />
                                                   </list>
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Create a loop that prints the contents of the language array" />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="    for (language in languages)&#10;        println(language)" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -699,7 +897,7 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="26" />
+                                      <option name="length" value="4" />
                                       <option name="offset" value="50" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
@@ -716,7 +914,7 @@
                                                   </list>
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Create Customer Class Here" />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="class Customer(var name: String = &quot;&quot;)" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -730,8 +928,8 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="1" />
                                       <option name="initialState" />
-                                      <option name="length" value="55" />
-                                      <option name="offset" value="105" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="165" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
                                         <map>
@@ -744,7 +942,7 @@
                                                   <list />
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Create Customer object and initialize the Name property" />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="val customer = Customer()&#10;&#10;    customer.name = &quot;Michael&quot;" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -866,8 +1064,8 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="22" />
-                                      <option name="offset" value="253" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="282" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
                                         <map>
@@ -883,7 +1081,7 @@
                                                   </list>
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Add Custom Setter Here" />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="(value){&#10;            field = value&#10;            counter += 1&#10;        }" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -936,7 +1134,7 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="31" />
+                                      <option name="length" value="4" />
                                       <option name="offset" value="192" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
@@ -947,10 +1145,12 @@
                                                 <option name="answer" value="" />
                                                 <option name="hasFrame" value="true" />
                                                 <option name="hints">
-                                                  <list />
+                                                  <list>
+                                                    <option value="Add a name property and a rooms property" />
+                                                  </list>
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Complete the house declaration " />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="(name: String, var rooms: Int) : Building(name)" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -1098,7 +1298,7 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="38" />
+                                      <option name="length" value="4" />
                                       <option name="offset" value="390" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
@@ -1116,7 +1316,7 @@
                                                   </list>
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Implement the WordCount Extension here" />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="fun String.wordCount() : Int{&#10;    return this.split(&quot; &quot;, &quot;.&quot;, &quot;,&quot;).removeEmpty().count()&#10;}" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -1169,8 +1369,8 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="74" />
-                                      <option name="offset" value="112" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="191" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
                                         <map>
@@ -1185,7 +1385,7 @@
                                                   </list>
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Destructure the date passed in into year, month, and dayOfMonth variables." />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="val (year, month, dayOfMonth) = date" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -1367,7 +1567,67 @@
                             <value>
                               <TaskFile>
                                 <option name="answerPlaceholders">
-                                  <list />
+                                  <list>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="0" />
+                                      <option name="initialState" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="203" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list>
+                                                    <option value="use &quot;mapOf&quot;" />
+                                                    <option value="don't forget it's a map of &quot;String&quot; to &quot;Int&quot;" />
+                                                  </list>
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="mapOf(&quot;Ohio&quot; to 1, &quot;California&quot; to 2)" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Unchecked" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                    <AnswerPlaceholder>
+                                      <option name="index" value="1" />
+                                      <option name="initialState" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="260" />
+                                      <option name="selected" value="false" />
+                                      <option name="subtaskInfos">
+                                        <map>
+                                          <entry key="0">
+                                            <value>
+                                              <AnswerPlaceholderSubtaskInfo>
+                                                <option name="answer" value="" />
+                                                <option name="hasFrame" value="true" />
+                                                <option name="hints">
+                                                  <list />
+                                                </option>
+                                                <option name="needInsertText" value="false" />
+                                                <option name="placeholderText" value="TODO" />
+                                                <option name="possibleAnswer" value="mutableMapOf&lt;String, Int&gt;()" />
+                                                <option name="selected" value="false" />
+                                                <option name="status" value="Unchecked" />
+                                              </AnswerPlaceholderSubtaskInfo>
+                                            </value>
+                                          </entry>
+                                        </map>
+                                      </option>
+                                      <option name="useLength" value="false" />
+                                    </AnswerPlaceholder>
+                                  </list>
                                 </option>
                                 <option name="highlightErrors" value="true" />
                                 <option name="index" value="-1" />
@@ -1409,8 +1669,8 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="26" />
-                                      <option name="offset" value="30" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="61" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
                                         <map>
@@ -1423,7 +1683,7 @@
                                                   <list />
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Create a range from 1 to 5" />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="1..5" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -1437,8 +1697,8 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="1" />
                                       <option name="initialState" />
-                                      <option name="length" value="55" />
-                                      <option name="offset" value="37" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="128" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
                                         <map>
@@ -1451,7 +1711,7 @@
                                                   <list />
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Loop over the range and use println to print the number" />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="for(n in range){&#10;&#9;&#9;println(n)&#10;&#9;}" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
@@ -1504,8 +1764,8 @@
                                     <AnswerPlaceholder>
                                       <option name="index" value="0" />
                                       <option name="initialState" />
-                                      <option name="length" value="86" />
-                                      <option name="offset" value="111" />
+                                      <option name="length" value="4" />
+                                      <option name="offset" value="202" />
                                       <option name="selected" value="false" />
                                       <option name="subtaskInfos">
                                         <map>
@@ -1521,7 +1781,7 @@
                                                   </list>
                                                 </option>
                                                 <option name="needInsertText" value="false" />
-                                                <option name="placeholderText" value="Use the maxBy higher-order function to complete this function to find the older person" />
+                                                <option name="placeholderText" value="TODO" />
                                                 <option name="possibleAnswer" value="people.maxBy { it.age }" />
                                                 <option name="selected" value="false" />
                                                 <option name="status" value="Solved" />
