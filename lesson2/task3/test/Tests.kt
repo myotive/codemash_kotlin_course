@@ -9,7 +9,12 @@ class Test {
     private val outContent = ByteArrayOutputStream()
     private val errContent = ByteArrayOutputStream()
 
-    @Before
+	fun isWindows(): Boolean = OS.indexOf("win") >= 0
+	private val OS = System.getProperty("os.name").toLowerCase()
+	private val delimiter = if(isWindows()) "\r\n" else "\n"
+
+
+	@Before
     fun setUpStreams() {
         System.setOut(PrintStream(outContent))
         System.setErr(PrintStream(errContent))
@@ -28,7 +33,7 @@ class Test {
         forLoopTest()
 
         Assert.assertNotNull(outContent.toString())
-        val results = outContent.toString().split("\r\n")
+        val results = outContent.toString().split(delimiter)
         results
             .filter { it != "" }
             .forEach { Assert.assertTrue(languages.contains(it)) }
